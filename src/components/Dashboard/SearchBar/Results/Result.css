@@ -1,0 +1,8 @@
+.result_item {
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+}
+
+.result_item:hover {
+  background-color: #efefef;
+}

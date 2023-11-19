@@ -1,0 +1,102 @@
+.selector_container {
+  display: flex;
+  flex-direction: column;
+  background: url("/src/images/home-bg.jpg") center center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.selector_text {
+  color: white;
+  height: 10%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-family: "Chewy";
+}
+
+.selector_text > h1 {
+  font-family: "Chewy";
+  font-size: 40px;
+}
+
+.selector_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50%;
+}
+
+.selector_left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #fff;
+  justify-content: center;
+  padding: 10rem;
+}
+
+.selector_left_text {
+  color: white;
+  margin-bottom: 1rem;
+  width: 50vw;
+}
+
+.attendee_list {
+  font-size: 20px;
+  margin-bottom: 2rem;
+  color: white;
+  list-style: disc;
+  padding: 9px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.attendee_list > li {
+  margin: 2rem;
+}
+
+.selector_left_text > li {
+  margin: 2rem;
+}
+
+.selector_right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid #fff;
+  justify-content: center;
+  padding: 10rem;
+}
+
+.selector_right_text {
+  color: white;
+  margin-bottom: 1rem;
+  width: 50vw;
+}
+
+@media screen and (max-width: 1296px) {
+  .selector_container {
+    overflow: scroll;
+  }
+
+  .selector_left_text {
+    margin-top: 0rem;
+    font-size: 12px;
+  }
+
+  .selector_right_text {
+    margin-top: 10rem;
+    font-size: 12px;
+  }
+}

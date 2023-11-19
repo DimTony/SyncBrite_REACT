@@ -1,0 +1,271 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.navbar {
+  background: #fff;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: relative;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  max-width: 1920px;
+}
+
+.navbar_logo {
+  color: #003366;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav_logo {
+  width: 9.5rem;
+  height: 2.5rem;
+}
+
+.nav_logo_mobile {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.fa-caret-down {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+.nav_menu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 60vw;
+  justify-content: end;
+  margin-right: 2rem;
+  height: 100%;
+}
+
+.nav_item {
+  height: 80px;
+  margin-right: 2vw;
+}
+
+.nav_links {
+  color: #003366;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
+
+.nav_links:hover {
+  border-bottom: 4px solid #fff;
+  transition: all 0.2s ease-out;
+}
+
+.cta {
+  color: #003366;
+}
+.fa-bars {
+  color: #003366;
+}
+
+.nav_links_mobile {
+  display: none;
+}
+
+.menu_icon {
+  display: none;
+}
+
+.tools_container {
+  width: 8vw;
+  height: 12vh;
+}
+
+.tools_dropdown_menu {
+  position: relative;
+  top: -20px;
+  right: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 200px;
+}
+
+.tools_dropdown_menu a {
+  text-decoration: none;
+}
+
+.tools_dropdown_menu::before {
+  content: "";
+  position: relative;
+  top: -5px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  background: #003366;
+  transform: rotate(45deg);
+}
+
+.tools_dropdown_menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 500ms ease;
+}
+
+.tools_dropdown_menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 500ms ease;
+}
+
+.tools_dropdown_menu ul li {
+  list-style: none;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tools_dropdown_menu ul li:hover a {
+  color: rgb(212, 33, 9);
+  cursor: pointer;
+}
+
+.dropdownItem {
+  display: flex;
+  margin: 10px auto;
+}
+
+.dropdownItem a {
+  max-width: 150px;
+  margin-left: 10px;
+  transition: 500ms;
+}
+
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  }
+
+  .nav_menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 35rem;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav_menu.active {
+    background: #fff;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    margin-top: 10px;
+    padding-left: 0px;
+    align-items: center;
+  }
+
+  .nav_links {
+    text-align: center;
+    padding: 2rem;
+    display: table;
+  }
+
+  .nav_links:hover {
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
+  }
+
+  .navbar_logo {
+    position: absolute;
+    left: 0;
+  }
+
+  .nav_logo_mobile {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .menu_icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-right: 2vw;
+  }
+
+  .fa-times {
+    color: #003366;
+    font-size: 2rem;
+  }
+
+  .nav_links_mobile {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #003366;
+    padding: 14px 20px;
+    border: 1px solid #003366;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+  }
+
+  .nav_links_mobile:hover {
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+    cursor: pointer;
+  }
+
+  .tools_container {
+    width: 7rem;
+    height: 5rem;
+  }
+
+  .fa-caret-down {
+    visibility: hidden;
+  }
+
+  .login {
+    margin-bottom: 45px;
+    width: 80vw;
+  }
+
+  .signup {
+    width: 80vw;
+  }
+}

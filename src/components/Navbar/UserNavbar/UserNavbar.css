@@ -1,0 +1,60 @@
+.login_navbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  position: relative;
+  top: 0;
+  z-index: 999;
+  background: transparent;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 7rem;
+  padding-top: 2rem;
+}
+
+.nav_text {
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar_logo {
+  color: #003366;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  width: 10rem;
+}
+
+.nav_logo {
+  width: 9.5rem;
+  height: 2.5rem;
+}
+
+@media screen and (max-width: 960px) {
+  .nav_text {
+    color: white;
+    height: 100%;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .navbar_logo {
+    color: #003366;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  .nav_logo_mobile {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 2rem;
+    margin-top: -1rem;
+  }
+}

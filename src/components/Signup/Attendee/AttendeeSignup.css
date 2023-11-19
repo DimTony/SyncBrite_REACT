@@ -1,0 +1,133 @@
+.attendee_container {
+  display: flex;
+  flex-direction: column;
+  background: url("/src/images/home-bg.jpg") center center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.attendee_form_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+}
+
+.attendee_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_container {
+  color: white;
+}
+
+.form_input {
+  outline: none;
+  border: none;
+  width: 370px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin: 0 0 17px 0;
+  font-size: 18px;
+}
+
+.btn_signup {
+  margin: 10px 0 10px 0;
+  padding: 12px 26px;
+  font-size: 20px;
+  background-color: #fff;
+  color: #003366;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.error_msg,
+.success_msg {
+  width: 370px;
+  padding: 15px;
+  margin: 5px 0;
+  font-size: 15px;
+  font-weight: 800;
+  background-color: #f34646;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.success_msg {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 19vh;
+  align-items: center;
+  font-size: 45px;
+  font-family: Chewy;
+}
+
+.success_container {
+  width: 100vw;
+  height: 50vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.success_text {
+  font-size: 50px;
+}
+
+.success_login_text {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+
+.login_link {
+  color: #5cdd5c;
+  text-decoration: none;
+}
+
+.white_btn,
+.green_btn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: white;
+  border-radius: 20px;
+  width: 180px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.green_btn {
+  background-color: #3bb19b;
+  color: white;
+  margin: 10px;
+}
+
+@media screen and (max-width: 694px) {
+  .success_msg {
+    width: 30rem;
+  }
+
+  .success_text {
+    font-size: 20px;
+  }
+}

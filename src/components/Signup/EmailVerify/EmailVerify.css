@@ -1,0 +1,90 @@
+.verified_container {
+  display: flex;
+  flex-direction: column;
+  background: url("/src/images/home-bg.jpg") center center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.verified_success_container {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.verified_success_msg {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 19vh;
+  align-items: center;
+  font-size: 45px;
+  font-family: Chewy;
+}
+
+.verified_success_msg {
+  color: white;
+  font-family: "Chewy";
+}
+
+.btns_verified_login {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px !important;
+}
+
+.green_btn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: #3bb19b;
+  border-radius: 20px;
+  width: 180px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.verified_error_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error_img {
+  width: 20rem;
+}
+
+.verified_error_container > h2 {
+  font-size: 140px;
+}
+
+.verified_error_container > p {
+  font-size: 32px;
+}
+
+.login_icon {
+  position: relative;
+  margin-left: 1rem;
+  top: 4px;
+  width: 30px;
+}
