@@ -1,12 +1,13 @@
 import React from "react";
-import AttendeeNavbar from "../Navbar/AttendeeNavbar";
 
-function AttendeeEvents() {
+function Event() {
   return (
-    <div>
-      <AttendeeNavbar />
-    </div>
+    <>
+      <div>
+        <h1>YEssir</h1>
+      </div>
+    </>
   );
 }
 
-export default AttendeeEvents;
+export default Event;

@@ -1,12 +1,8 @@
 import React from "react";
 import AttendeeNavbar from "../Navbar/AttendeeNavbar";
 
-function AttendeeNotifications() {
-  return (
-    <div>
-      <AttendeeNavbar />
-    </div>
-  );
+function Notifications() {
+  return <div>NOtify</div>;
 }
 
-export default AttendeeNotifications;
+export default Notifications;

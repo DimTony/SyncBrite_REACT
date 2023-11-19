@@ -1,12 +1,8 @@
 import React from "react";
 import AttendeeNavbar from "../Navbar/AttendeeNavbar";
 
-function AttendeeGroups() {
-  return (
-    <div>
-      <AttendeeNavbar />
-    </div>
-  );
+function Groups() {
+  return <div>Hello</div>;
 }
 
-export default AttendeeGroups;
+export default Groups;
