@@ -260,9 +260,11 @@ function AttendeeNavbar({ error, isLoggedIn, userData, setUserData }) {
                     >
                       <ul>
                         <ProfileDropdownItem
-                          url={"/profile"}
+                          url={`/profile/${
+                            userData ? userData.userName : "Loading..."
+                          }`}
                           img={<img src={myProfileIcon} alt="my_profile" />}
-                          text={userData.firstName}
+                          text={userData ? userData.fullName : "Loading..."}
                         />
                         <ProfileDropdownItem
                           url={"/settings"}

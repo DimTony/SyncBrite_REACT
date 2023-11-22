@@ -7,7 +7,7 @@ import signupIcon from "../../images/signup-icon.png";
 import mobileLogo from "../../images/syncbrite-white-icon.png";
 import loginIcon from "../../images/login-icon.png";
 import UserNavbar from "../Navbar/UserNavbar/UserNavbar";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
   const [data, setData] = useState({

@@ -1,19 +1,7 @@
-import React, { useState } from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import SearchResultsList from "../SearchBar/Results/SearchResultsList";
-import UserNavbar from "../Navbar/UserNavbar/UserNavbar";
+import React from "react";
 
 function Test() {
-  const [results, setResults] = useState([]);
-  return (
-    <div className="test_container">
-      <UserNavbar />
-      <div className="search_container">
-        <SearchBar setResults={setResults} />
-        <SearchResultsList results={results} />
-      </div>
-    </div>
-  );
+  return <div>Test</div>;
 }
 
 export default Test;
