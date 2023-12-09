@@ -1,0 +1,68 @@
+.create_event_modal2_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom_event_dates_header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 680px;
+  background: white;
+  padding: 1rem;
+}
+
+.custom_event_dates_header_btn_container {
+  position: relative;
+  right: 10rem;
+}
+
+.custom_event_dates_header_btn {
+  cursor: pointer;
+}
+
+.custom_event_dates_header_btn:hover {
+  color: blue;
+}
+
+.calendar {
+  z-index: 100;
+  width: 32rem;
+  margin: 6rem;
+}
+
+.rmdp-panel-header {
+  padding-left: 1rem;
+}
+
+.custom_event_dates_next_cta {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 3rem;
+  width: 75%;
+}
+
+.custom_event_dates_next_btn {
+  padding: 12px 26px;
+  font-size: 20px;
+  font-weight: 500;
+  background: linear-gradient(0deg, #3358f4, #1d8cf8);
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 10px;
+  outline: rgb(63, 61, 61);
+  cursor: pointer;
+  width: 100%;
+}
+
+.custom_event_dates_next_btn:hover {
+  background: linear-gradient(0deg, #3358f4, #7bbdff);
+  border: 1px solid #fff !important;
+}

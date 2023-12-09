@@ -1,0 +1,35 @@
+.rightbar_wrapper {
+  width: 86%;
+}
+
+.cover_pic_view_container {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view_cover_img {
+  width: 100%;
+  height: 100%;
+}
+
+.profile_pic_view_modal_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 90%;
+  width: 90%;
+}

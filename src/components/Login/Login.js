@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 import "./Login.css";
 import { Button } from "../Button/Button";
@@ -7,7 +9,7 @@ import signupIcon from "../../images/signup-icon.png";
 import mobileLogo from "../../images/syncbrite-white-icon.png";
 import loginIcon from "../../images/login-icon.png";
 import UserNavbar from "../Navbar/UserNavbar/UserNavbar";
-import { useAuth } from "../../contexts/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 
 function Login() {
   const [data, setData] = useState({
@@ -17,8 +19,9 @@ function Login() {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies([]);
 
-  const { loggedIn } = useAuth();
+  // const { loggedIn } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
@@ -28,28 +31,38 @@ function Login() {
     });
   };
 
+  const generateError = (err) =>
+    toast.error(err, {
+      position: "top-right",
+    });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true);
     try {
       const url = "http://localhost:8080/api/auth";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data.accessToken);
-      const userData = {
-        id: res.data.user.id,
-        firstName: res.data.user.firstName,
-        lastName: res.data.user.lastName,
-        email: res.data.user.email,
-        role: res.data.user.role,
-      };
-      loggedIn(userData);
-      if (userData.role === "attendee") {
-        navigate("/attendee/dashboard");
-      } else if (userData.role === "organizer") {
-        navigate("/organizer/dashboard");
+      const { data: res } = await axios.post(url, data, {
+        withCredentials: true,
+      });
+      if (res) {
+        if (res.status >= 400 || res.status <= 500) {
+          generateError(res.message);
+        } else {
+          localStorage.setItem("token", res.data.accessToken);
+          setCookie("SyncBriteToken", res.data.accessToken, { path: "/" });
+          const { role } = res.data.user;
+          // loggedIn(userData);
+          if (role === "attendee") {
+            navigate("/attendee/dashboard");
+          } else if (role === "organizer") {
+            navigate("/organizer/dashboard");
+          } else {
+            navigate("/missing");
+          }
+        }
       } else {
-        navigate("/missing");
+        generateError("Server Not Responding...");
       }
     } catch (error) {
       if (
@@ -57,7 +70,12 @@ function Login() {
         error.response.status >= 400 &&
         error.response.status <= 500
       ) {
+        generateError(error.response.data.message);
         setError(error.response.data.message);
+      } else if (error.request) {
+        generateError("Server Not Responding");
+      } else {
+        generateError("An unexpected error occurred");
       }
     } finally {
       setLoading(false);
@@ -67,6 +85,7 @@ function Login() {
   return (
     <div className="login_container">
       <UserNavbar />
+      <ToastContainer />
       <div className="login_form_container">
         <div className="form_left">
           <form className="form_container" onSubmit={handleSubmit}>
@@ -94,7 +113,7 @@ function Login() {
             <Link to="/forgot-password" className="forgot_link">
               <p>Forgot Password?</p>
             </Link>
-            {error && <div className="error_msg">{error}</div>}
+
             {loading ? (
               <button type="button" className="green_btn" disabled>
                 Loading...

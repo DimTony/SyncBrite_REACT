@@ -1,0 +1,12 @@
+.sidebar_nav_item {
+  display: flex;
+  cursor: pointer;
+}
+
+.sidebar_nav_item:hover {
+  background: grey;
+}
+
+.sidebar_nav_link {
+  width: 100%;
+}

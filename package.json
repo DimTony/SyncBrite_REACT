@@ -3,21 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@expo-google-fonts/chewy": "^0.2.3",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.1",
+    "chart.js": "^4.4.0",
+    "dotenv": "^16.3.1",
     "expo-app-loading": "^2.1.1",
     "expo-font": "^11.6.0",
+    "firebase": "^10.6.0",
+    "lucide-react": "^0.294.0",
+    "postcss": "^8.4.31",
+    "primereact": "^10.2.1",
     "react": "^18.2.0",
+    "react-avatar-edit": "^1.2.0",
     "react-bootstrap": "^2.9.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-cookie": "^6.1.1",
+    "react-datepicker": "^4.24.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
+    "react-loading-skeleton": "^3.3.1",
+    "react-modal": "^3.16.1",
+    "react-multi-date-picker": "^4.4.1",
     "react-native": "^0.72.6",
     "react-native-responsive-screen": "^1.4.2",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
+    "react-toastify": "^9.1.3",
+    "reactstrap": "^9.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -43,5 +63,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
   }
 }
