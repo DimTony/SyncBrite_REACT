@@ -1,0 +1,129 @@
+.item-slider-container {
+  background-color: #fff;
+  box-shadow: 0px 0px 16px -8px rgb(0 0 0 / 68%);
+  width: 70rem;
+  height: 20rem;
+}
+
+.item-slider-container .item-title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 15px;
+}
+
+.item-slider {
+  height: 100%;
+  padding: 0px 5px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.item-slider .item-container {
+  display: inline-flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  padding: 0px 5px;
+}
+
+.item-slider .item-container span {
+  margin: 0px 10px;
+  padding: 0.5rem;
+  width: 20rem;
+}
+
+.item-slider .item-container::-webkit-scrollbar {
+  display: none;
+}
+
+.item-slider .left-arrow-left {
+  position: absolute;
+  left: 15px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.item-slider .right-arrow-right {
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.right-arrow-right > svg,
+.left-arrow-left > svg {
+  color: #c3c3c1;
+}
+
+.right-arrow-right svg:hover,
+.left-arrow-left svg:hover {
+  color: #5b5b5b;
+  border-radius: 50%;
+}
+
+/* Card item styles */
+.item-container .card {
+  border: unset;
+}
+
+.item-container .card-title {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.item-container .card span {
+  padding: 0;
+  margin: 0;
+}
+
+.item-container .card .mrp-price {
+  font-size: 15px;
+  font-weight: normal;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.item-container .card .save-price {
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--sp-exam-button-color);
+}
+
+.item-container .card .actual-price {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.create_card {
+  width: 15rem;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.68) 0px 0px 16px -8px;
+}
+
+.create_card_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.create_card_body_title {
+  font-size: 19px !important;
+}
+
+.create_card_create_event {
+  transition: transform 0.2s; /* Animation */
+}
+
+.create_card_create_event:hover {
+  opacity: 0.8;
+}

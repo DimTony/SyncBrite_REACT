@@ -1,365 +1,310 @@
 import React, { useState, useEffect } from "react";
-import "./Main.css";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import TimedOut from "../../TimedOut/TimedOut";
-import VerifyUser from "../../../helpers/VerifyUser";
+import { toast, ToastContainer } from "react-toastify";
+import Skeleton from "react-loading-skeleton";
+import axios from "axios";
+import "react-loading-skeleton/dist/skeleton.css";
+import "./Main.css";
 import AttendeeNavbar from "../Navbar/AttendeeNavbar";
-import mobileLogo from "../../../images/syncbrite-white-icon.png";
-import groupIcon from "../../../images/group-nav-icon.png";
-import memoriesIcon from "../../../images/memories-icon.png";
-import savedIcon from "../../../images/saved-icon.png";
-import adsIcon from "../../../images/ads-icon.png";
-import messengerIcon from "../../../images/messenger-icon.png";
-import fundraiserIcon from "../../../images/fundraiser-icon.png";
-import grammarlyIcon from "../../../images/grammarly.jpg";
+import { Card } from "react-bootstrap";
+import { CiShare2 } from "react-icons/ci";
+import {
+  FaRegCalendarPlus,
+  FaRegHeart,
+  FaRegCommentDots,
+} from "react-icons/fa";
+import { HiDotsHorizontal } from "react-icons/hi";
+import { MdOutlineClose } from "react-icons/md";
+import EventSlider from "./Slider/EventSlider";
+import LeftSection from "./LeftSection/LeftSection";
+import RightSection from "./RightSection/RightSection";
 import placeholderIcon from "../../../images/placeholder.png";
-import createIcon from "../../../images/create-icn.png";
+import coverPicPlaceholder from "../../../images/cover-placeholder.jpg";
 
-function Main() {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
+const Dashboard = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    const checkUserStatus = async () => {
-      const { user, isLoggedIn, error } = await VerifyUser(navigate);
+  const [userData, setUserData] = useState(null);
+  const [cookies, setCookie, removeCookie] = useCookies(["SyncBriteToken"]);
 
-      if (isLoggedIn) {
-        // User is authenticated
-        setIsLoggedIn(true);
-        setUserData(user);
+  const topDealsItems = [
+    {
+      title: "CHARISMATA CONFERENCE 2023!!!",
+      date: "FRIDAY, DECEMBER 8, 2023 AT 4 AM UTC+01",
+      location: "Hamburg",
+      url: "/attendee/dashboard",
+      interested: 123,
+      going: 45,
+    },
+    {
+      title: "TONGUES AND SONGS 5",
+      date: "WEDNESDAY, JANUARY 17, 2024 AT 4 AM UTC+01",
+      location: "Minsk, the municipality",
+      url: "/attendee/dashboard",
+      interested: 678,
+      going: 910,
+    },
+    {
+      title: "Rehoboth 2023",
+      date: "MONDAY, FEBRUARY 26, 2024 AT 4 AM UTC+01",
+      location: "Gomel Region",
+      url: "/attendee/dashboard",
+      interested: 1112,
+      going: 13,
+    },
+    {
+      title: "Hotel Danag",
+      date: "SUNDAY, APRIL 7, 2024 AT 4 AM UTC+01",
+      location: "Santiago de Cuba",
+      url: "/attendee/dashboard",
+      interested: 1415,
+      going: 16,
+    },
+    {
+      title: "MEET YOUR MATCH 2023(MYM)",
+      date: "SATURDAY, MAY 18, 2024 AT 4 AM UTC+01",
+      location: "Munich (München)",
+      url: "/attendee/dashboard",
+      interested: 1718,
+      going: 19,
+    },
+    {
+      title: "FEAST OF MIRACLE 2023",
+      date: "FRIDAY, JUNE 28, 2024 AT 4 AM UTC+01",
+      location: "Cologne (Köln)",
+      interested: 2021,
+      going: 22,
+    },
+    {
+      title: "Christmas Carol Concert",
+      date: "WEDNESDAY, AUGUST 7, 2024 AT 4 AM UTC+01",
+      location: "North Rhine-Westphalia",
+      interested: 2324,
+      going: 25,
+    },
+    {
+      title: "Tontex Garden Centre",
+      date: "TUESDAY, SEPTEMBER 17, 2024 AT 4 AM UTC+01",
+      location: "Bavaria",
+      interested: 2627,
+      going: 28,
+    },
+    // Add more items as needed
+  ];
+
+  useEffect(() => {
+    const checkCookieAndFetchData = async () => {
+      // Check if the cookie exists in the browser
+      const syncToken = cookies.SyncBriteToken;
+
+      if (syncToken) {
+        // If the cookie exists, send an API call to the backend using Axios
+        try {
+          const response = await axios.post(
+            "http://localhost:8080/api/auth/verify-auth",
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${syncToken}`, // Send the cookie value as a Bearer token
+              },
+            }
+          );
+
+          if (response.status === 200) {
+            // If the backend verifies the cookie, set the user data in the state
+            setUserData(response.data.user);
+          } else {
+            // Handle the case where the backend does not verify the cookie
+            navigate("/login");
+
+            console.error("Failed to verify the cookie");
+          }
+        } catch (error) {
+          navigate("/login");
+
+          console.error("Error fetching user data:", error);
+        }
       } else {
-        // User is not authenticated
-        setIsLoggedIn(false);
-        setError("User Unauthorized");
+        navigate("/login");
       }
     };
 
-    checkUserStatus();
-  }, []);
+    checkCookieAndFetchData();
+  }, [navigate]); // The empty dependency array ensures that this effect runs only once on component mount
 
   return (
-    <>
-      {isLoggedIn ? (
+    <div>
+      {userData ? (
         <div className="main_container">
-          <AttendeeNavbar
-            isLoggedIn={isLoggedIn}
-            userData={userData}
-            error={error}
-            setUserData={setUserData}
-          />
-
+          <AttendeeNavbar userData={userData} />
+          <ToastContainer />
           <div className="dashboard_hero_container">
-            <div className="left_section">
-              <div className="left_profile_nav">
-                <ul>
-                  <li>
-                    <div className="left_profile">
+            <LeftSection userData={userData} />
+            <div className="center_section">
+              <div className="center_section_container">
+                <div className="center_top">
+                  <EventSlider>
+                    <Card className="create_card">
                       <a
-                        href="/profile"
-                        tabIndex="0"
-                        className="left_profile_link"
+                        href="/events/create"
+                        className="create_card_create_event"
                       >
-                        <div className="left_profile_img">
-                          <div className="hero_nav_img">
-                            <div className="hero_img_holder">
+                        <Card.Img
+                          variant="top"
+                          src={userData ? userData.profilePic : placeholderIcon}
+                          style={{ maxWidth: "200px", maxHeight: "200px" }}
+                        />
+
+                        <Card.Body className="create_card_body">
+                          <Card.Title className="create_card_body_title">
+                            Create Event
+                          </Card.Title>
+                          <Card.Text>
+                            <FaRegCalendarPlus size={30} />
+                          </Card.Text>
+                        </Card.Body>
+                      </a>
+                    </Card>
+                    {topDealsItems.map((item, index) => (
+                      <span
+                        key={index}
+                        style={{
+                          boxShadow: "0px 0px 16px -8px rgb(0 0 0 / 68%)",
+                        }}
+                      >
+                        <Card style={{ width: "19rem" }}>
+                          <a href={item.url}>
+                            <Card.Img
+                              variant="top"
+                              src="https://placehold.co/300x160"
+                            />
+                            <Card.Body>
+                              <Card.Title>{item.date}</Card.Title>
+                              <Card.Text>
+                                <span className="actual-price">
+                                  {item.title}
+                                </span>
+                                <span className="mrp-price">
+                                  {item.location}{" "}
+                                </span>
+                                <span className="save-price">
+                                  {item.interested} interested • {item.going}{" "}
+                                  going
+                                </span>
+                              </Card.Text>
+                            </Card.Body>
+                          </a>
+                        </Card>
+                      </span>
+                    ))}
+                  </EventSlider>
+                </div>
+                <div className="center_bottom">
+                  <div className="center_bottom_wrapper">
+                    <div className="center_bottom_container">
+                      <div className="center_bottom_col_main">
+                        <div className="rightbar_col_main_item">
+                          <div className="rightbar_col_main_item_header">
+                            <div className="rightbar_col_main_item_header_img_holder">
                               <img
-                                src={mobileLogo}
-                                className="hero_profile_img"
-                                alt="hero_profile_img"
+                                src={placeholderIcon}
+                                alt="siderbar_logo_img"
+                                className="rightbar_col_main_item_header_img"
                               />
+                            </div>
+                            <div className="rightbar_col_main_item_header_title_holder">
+                              <div className="rightbar_col_main_item_header_title">
+                                <div className="rightbar_col_main_item_header_title_name">
+                                  Profile Name
+                                </div>
+                                <div className="rightbar_col_main_item_header_title_info">
+                                  2/2/1991 There
+                                </div>
+                              </div>
+                            </div>
+                            <div className="rightbar_col_main_item_header_more_btn_holder">
+                              <div className="rightbar_col_main_item_header_more_btn">
+                                <HiDotsHorizontal />
+                              </div>
+                            </div>
+                            <div className="rightbar_col_main_item_header_close_btn_holder">
+                              <div className="rightbar_col_main_item_header_close_btn">
+                                <MdOutlineClose />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="rightbar_col_main_item_content_holder">
+                            <div className="rightbar_col_main_item_content">
+                              <div className="rightbar_col_main_item_content_text_holder">
+                                <div className="rightbar_col_main_item_content_text">
+                                  {/* Lorem ipsum */}
+                                </div>
+                              </div>
+                              <div className="rightbar_col_main_item_content_img_holder">
+                                <img
+                                  src={coverPicPlaceholder}
+                                  className="rightbar_col_main_item_content_img"
+                                  alt="profile_banner_logo_img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="rightbar_col_main_item_metrics">
+                            <div className="rightbar_col_main_item_metrics_container">
+                              <div className="rightbar_col_main_item_metrics_like">
+                                2 Likes
+                              </div>
+                              <div className="rightbar_col_main_item_metrics_comment">
+                                3 Comments
+                              </div>
+                              <div className="rightbar_col_main_item_metrics_share">
+                                4 shares
+                              </div>
+                            </div>
+                          </div>
+                          <div className="rightbar_col_main_item_ctas">
+                            <div className="rightbar_col_main_item_ctas_item">
+                              <div className="rightbar_col_main_item_ctas_item_icon">
+                                <FaRegHeart />
+                              </div>
+                              <div className="rightbar_col_main_item_ctas_item_name">
+                                Like
+                              </div>
+                            </div>
+                            <div className="rightbar_col_main_item_ctas_item">
+                              <div className="rightbar_col_main_item_ctas_item_icon">
+                                <FaRegCommentDots />
+                              </div>
+                              <div className="rightbar_col_main_item_ctas_item_name">
+                                Coment
+                              </div>
+                            </div>
+                            <div className="rightbar_col_main_item_ctas_item">
+                              <div className="rightbar_col_main_item_ctas_item_icon">
+                                <CiShare2 />
+                              </div>
+                              <div className="rightbar_col_main_item_ctas_item_name">
+                                Share
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div className="left_profile_name">
-                          {userData ? userData.fullName : "Loading..."}
-                        </div>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="left_menu_nav">
-                <ul className="left_menu_nav_container">
-                  <li>
-                    <div className="left_menu_nav_item">
-                      <a
-                        href="/groups"
-                        tabIndex="0"
-                        className="left_profile_link"
-                      >
-                        <div className="left_menu_nav_img_container">
-                          <div>
-                            <img
-                              src={groupIcon}
-                              className="left_menu_nav_img"
-                              alt="hero_profile_img"
-                            />
-                          </div>
-                        </div>
-                        <div className="text-3xl font-bold underline">
-                          Find Groups
-                        </div>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="left_menu_nav_item">
-                      <a
-                        href="/memories"
-                        tabIndex="0"
-                        className="left_profile_link"
-                      >
-                        <div className="left_menu_nav_img_container">
-                          <div>
-                            <img
-                              src={memoriesIcon}
-                              className="left_menu_nav_img"
-                              alt="hero_profile_img"
-                            />
-                          </div>
-                        </div>
-                        <div>Memories</div>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="left_menu_nav_item">
-                      <a
-                        href="/saved"
-                        tabIndex="0"
-                        className="left_profile_link"
-                      >
-                        <div className="left_menu_nav_img_container">
-                          <div>
-                            <img
-                              src={savedIcon}
-                              className="left_menu_nav_img"
-                              alt="hero_profile_img"
-                            />
-                          </div>
-                        </div>
-                        <div>Saved</div>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="left_menu_nav_item">
-                      <a href="/ads" tabIndex="0" className="left_profile_link">
-                        <div className="left_menu_nav_img_container">
-                          <div>
-                            <img
-                              src={adsIcon}
-                              className="left_menu_nav_img"
-                              alt="hero_profile_img"
-                            />
-                          </div>
-                        </div>
-                        <div>Ads Manager</div>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="left_menu_nav_item">
-                      <a
-                        href="/messenger"
-                        tabIndex="0"
-                        className="left_profile_link"
-                      >
-                        <div className="left_menu_nav_img_container">
-                          <div>
-                            <img
-                              src={messengerIcon}
-                              className="left_menu_nav_img"
-                              alt="hero_profile_img"
-                            />
-                          </div>
-                        </div>
-                        <div>Messenger</div>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="left_menu_nav_item">
-                      <a
-                        href="/fundraiser"
-                        tabIndex="0"
-                        className="left_profile_link"
-                      >
-                        <div className="left_menu_nav_img_container">
-                          <div>
-                            <img
-                              src={fundraiserIcon}
-                              className="left_menu_nav_img"
-                              alt="hero_profile_img"
-                            />
-                          </div>
-                        </div>
-                        <div>Fundraiser</div>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="left_shortcut_nav">Shortcuts...</div>
-            </div>
-            <div className="center_section">Center</div>
-            <div className="right_section">
-              <div className="right_container">
-                <div className="right_sponsored">
-                  <div className="right_sponsored_header">
-                    <h3>Sponsored</h3>
-                  </div>
-                  <div className="right_sponsored_items">
-                    <div>
-                      <div className="right_sponsored_item">
-                        <a href="/grammarly">
-                          <div className="right_sponsored_item_img_container">
-                            <img
-                              src={grammarlyIcon}
-                              className="right_sponsored_item_img"
-                              alt="right_item_img"
-                            />
-                          </div>
-                          <div className="right_sponsored_item_text">
-                            <span className="right_sponsored_item_title">
-                              Grammarly
-                            </span>
-                            <span className="right_sponsored_item_description">
-                              Grammarly is here to help
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                      <div className="right_sponsored_item">
-                        <a href="/grammarly">
-                          <div className="right_sponsored_item_img_container">
-                            <img
-                              src={grammarlyIcon}
-                              className="right_sponsored_item_img"
-                              alt="right_item_img"
-                            />
-                          </div>
-                          <div className="right_sponsored_item_text">
-                            <span className="right_sponsored_item_title">
-                              Grammarly
-                            </span>
-                            <span className="right_sponsored_item_description">
-                              Grammarly is here to help
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="right_contacts">
-                  <div className="right_contacts_header">
-                    <div className="right_contacts_header_text">
-                      <span>Contacts</span>
-                    </div>
-                    <div className="right_contacts_header_search_icon">
-                      <i class="fas fa-magnifying-glass" />
-                    </div>
-                    <div className="right_contacts_header_ellipses_icon">
-                      <i class="fas fa-ellipsis" />
-                    </div>
-                  </div>
-                  <div className="right_contacts_items">
-                    <div>
-                      <div className="right_contacts_item">
-                        <a href="/contact-profile-1">
-                          <div className="right_contacts_item_img_container">
-                            <img
-                              src={placeholderIcon}
-                              className="right_contacts_item_img"
-                              alt="right_item_img"
-                            />
-                          </div>
-                          <div className="right_contacts_item_text">
-                            <span className="right_contacts_item_name">
-                              John Obi
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                      <div className="right_contacts_item">
-                        <a href="/contact-profile-1">
-                          <div className="right_contacts_item_img_container">
-                            <img
-                              src={placeholderIcon}
-                              className="right_contacts_item_img"
-                              alt="right_item_img"
-                            />
-                          </div>
-                          <div className="right_contacts_item_text">
-                            <span className="right_contacts_item_name">
-                              John Obi
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="right_group_conversations">
-                  <div className="right_conversations_header">
-                    <div className="right_conversations_header_text">
-                      <span>Group Conversations</span>
-                    </div>
-                    <div className="right_conversations_header_search_icon">
-                      <i class="fas fa-magnifying-glass" />
-                    </div>
-                    <div className="right_conversations_header_ellipses_icon">
-                      <i class="fas fa-ellipsis" />
-                    </div>
-                  </div>
-                  <div className="right_conversations_items">
-                    <div>
-                      <div className="right_conversations_item">
-                        <a href="/contact-profile-1">
-                          <div className="right_conversations_item_img_container">
-                            <img
-                              src={placeholderIcon}
-                              className="right_conversations_item_img"
-                              alt="right_item_img"
-                            />
-                          </div>
-                          <div className="right_conversations_item_text">
-                            <span className="right_conversations_item_name">
-                              John Obi
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                      <div className="right_conversations_item">
-                        <a href="/group/create">
-                          <div className="right_conversations_item_img_container">
-                            <img
-                              src={createIcon}
-                              className="right_conversations_item_img"
-                              alt="right_item_img"
-                            />
-                          </div>
-                          <div className="right_conversations_item_text">
-                            <span className="right_conversations_item_name">
-                              Create new group
-                            </span>
-                          </div>
-                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <RightSection />
           </div>
         </div>
       ) : (
-        <TimedOut />
+        <div style={{ width: "100vw", height: "1oovh" }}>
+          <Skeleton />
+        </div>
       )}
-    </>
+    </div>
   );
-}
+};
 
-export default Main;
+export default Dashboard;

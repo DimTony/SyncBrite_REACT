@@ -39,14 +39,6 @@ function HeroSection() {
               Read the Docs{" "}
               <img src={docIcon} className="doc_icon" alt="doc_icon" />
             </Button>
-            <Button
-              buttonTo="/admin"
-              className="btns"
-              buttonStyle="btn__outline"
-              buttonSize="btn__large"
-            >
-              Admin <img src={docIcon} className="doc_icon" alt="doc_icon" />
-            </Button>
           </div>
         </div>
       </Col>

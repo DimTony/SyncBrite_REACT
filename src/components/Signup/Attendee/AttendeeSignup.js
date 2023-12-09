@@ -35,6 +35,7 @@ function AttendeeSignup() {
       try {
         const url = "http://localhost:8080/api/users/signup";
         const { data: res } = await axios.post(url, data);
+
         setMsg(res.message);
         setError(false);
         setData({

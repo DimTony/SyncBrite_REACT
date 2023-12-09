@@ -47,6 +47,11 @@ li {
   height: 100vh;
 }
 
+.skeleton_container {
+  height: 100%;
+  width: 100%;
+}
+
 .dashboard_hero_container {
   width: 100%;
   height: 100%;
@@ -107,6 +112,21 @@ li {
   flex-basis: 744px;
 }
 
+.right_section_wrapper {
+  font-family: inherit;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  position: sticky;
+  z-index: 0;
+  top: var(--header-height);
+  max-width: 360px;
+  max-height: 100vh;
+  min-width: 280px;
+  flex-basis: 360px;
+  min-height: inherit;
+}
+
 .right_section {
   font-family: inherit;
   overflow-x: hidden;
@@ -127,13 +147,22 @@ li {
 
 .left_profile_nav {
   display: flex;
-  padding: 2rem 0 0 36px;
+  padding: 2rem 0 0 30px;
+}
+
+.left_profile_nav_list {
+  padding-left: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-right: 0rem;
 }
 
 .left_profile {
   padding-left: 8px;
   padding-right: 8px;
   font-family: inherit;
+  margin-right: 4rem;
 }
 
 .left_profile_link {
@@ -174,13 +203,20 @@ li {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   border-top-left-radius: 8px;
-
   display: flex;
   flex-direction: row;
   text-decoration: none;
   align-items: center;
   color: black;
   font-size: 18px;
+  width: 28rem;
+  justify-content: center;
+}
+
+.left_profile_link:hover {
+  background-color: #c1c2c5;
+  color: #fff;
+  font-weight: 600;
 }
 
 .left_profile_1 {
@@ -235,13 +271,19 @@ li {
   width: 4rem;
   height: 4rem;
   border-radius: 60%;
+  object-fit: cover;
+}
+
+.left_menu_nav {
+  position: relative;
+  bottom: 1.6rem;
 }
 
 .left_menu_nav_container {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
-  margin-inline-start: 20px;
+  margin-inline-start: 70px;
   margin-inline-end: 10px;
   padding-inline-start: 16px;
   border-bottom: 1px solid;
@@ -253,6 +295,12 @@ li {
   text-align: -webkit-match-parent;
   margin-bottom: 1rem;
   font-size: 18px;
+}
+
+.left_menu_nav_item {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .left_menu_nav_item > a {
@@ -408,4 +456,33 @@ li {
 
 .right_conversations_item_text > span {
   font-size: 18px;
+}
+
+.center_section_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.center_bottom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center_bottom_wrapper {
+  width: 85%;
+  margin-top: 1rem;
+}
+
+.center_bottom_col_main {
+  width: 100%;
+  margin-right: 1rem;
+  border-radius: 5px;
+  background: transparent;
 }
