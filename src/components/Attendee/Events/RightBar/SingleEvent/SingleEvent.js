@@ -377,7 +377,6 @@ function SingleEvent() {
     const eventId = eventIdMatch[1];
 
     try {
-      // Make an asynchronous Axios PATCH request to the endpoint with the determined likeValue
       const response = await axios.patch(
         `http://localhost:8080/api/events/like/${eventId}`,
         { value: likeValueToSend },
@@ -397,8 +396,8 @@ function SingleEvent() {
         setLikePending(false);
       }
     } catch (error) {
-      // Handle errors if any
       console.error("Error making the request", error);
+      setLikePending(false);
     }
   };
 

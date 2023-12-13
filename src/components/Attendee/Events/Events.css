@@ -349,9 +349,11 @@
 }
 
 .righter_events_contents_discover_container {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
   padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .righter_events_contents_item_container {
@@ -360,6 +362,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+}
+
+.righter_events_contents_item_container:hover {
+  border: 1px solid #003366;
 }
 
 .righter_events_contents_item {
@@ -426,6 +432,7 @@
   overflow: auto;
   display: flex;
   transition: transform 0.3s ease;
+  border-radius: 10px;
 }
 
 .create_event_modal1_content.step-1 {

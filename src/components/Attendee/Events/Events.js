@@ -96,7 +96,7 @@ function Events() {
               <Leftbar data={data} setData={setData} />
             </div>
             <div className="righter">
-              <Rightbar />
+              <Rightbar userData={userData} setUserData={setUserData} />
             </div>
           </div>
         </div>

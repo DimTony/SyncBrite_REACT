@@ -44,6 +44,10 @@ li {
 }
 
 .main_container {
+  height: auto;
+}
+
+.main_wrapper {
   height: 100vh;
 }
 
@@ -117,9 +121,6 @@ li {
   overflow-x: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
-  position: sticky;
-  z-index: 0;
-  top: var(--header-height);
   max-width: 360px;
   max-height: 100vh;
   min-width: 280px;
@@ -132,9 +133,6 @@ li {
   overflow-x: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
-  position: sticky;
-  z-index: 0;
-  top: var(--header-height);
   max-width: 360px;
   max-height: 100vh;
   min-width: 280px;

@@ -158,7 +158,7 @@ a:hover {
 }
 
 a:hover {
-  color: #c221a9;
+  color: blue;
 }
 
 a:not([href]):not([class]),
@@ -361,6 +361,10 @@ template {
   position: fixed;
   height: 100%;
   width: 15%;
+}
+
+.profile_wrapper {
+  height: 100vh;
 }
 
 .off-canvas-sidebar[data="blue"],
@@ -606,6 +610,7 @@ template {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #fff;
+  cursor: pointer;
 }
 
 .rightbar_profile_img_btns {
@@ -652,6 +657,22 @@ template {
   cursor: pointer;
   font-size: 24px;
   font-weight: 700;
+}
+
+.rightbar_profile_otheruser_img_container {
+  position: absolute;
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  top: 15rem;
+  left: 14rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: #fff;
+}
+
+.rightbar_profile_otheruser_img_container:hover {
+  transform: scale(1.2);
 }
 
 .view_ProfilePic_container {
@@ -702,11 +723,22 @@ template {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+}
+
+.rightbar_profile_info_display_wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .rightbar_profile_info_name {
-  width: 80%;
   display: flex;
+}
+
+.rightbar_profile_info_friend_metrics_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .rightbar_profile_info_cta_btn {
@@ -720,6 +752,87 @@ template {
   border-radius: 10px;
   outline: rgb(63, 61, 61);
   cursor: pointer;
+}
+
+.rightbar_profile_otheruser_cta_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.rightbar_profile_otheruser_cta_item {
+  width: auto;
+  margin-left: 1rem;
+}
+
+.rightbar_profile_otheruser_addfriend_btn {
+  width: auto;
+}
+
+.rightbar_profile_friend_btn {
+  font-size: 20px;
+  font-weight: 500;
+  background: linear-gradient(0deg, #3358f4, #1d8cf8);
+  color: #fff;
+  border: none !important;
+  padding: 8px 20px;
+  border-radius: 10px;
+  outline: rgb(63, 61, 61);
+  cursor: pointer;
+  width: auto;
+}
+
+.rightbar_profile_friend_btn:hover {
+  background: rgb(237, 237, 255);
+  border: 1px solid rgb(0, 51, 102) !important;
+  color: rgb(0, 51, 102);
+}
+
+.rightbar_profile_otheruser_cta_btn {
+  padding: 12px 26px;
+  font-size: 20px;
+  font-weight: 500;
+  background: linear-gradient(0deg, #3358f4, #1d8cf8);
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 10px;
+  outline: rgb(63, 61, 61);
+  cursor: pointer;
+  width: 10.6rem;
+}
+
+.rightbar_profile_otheruser_cta_btn:hover {
+  background: rgb(237, 237, 255);
+  border: 1px solid rgb(0, 51, 102);
+  color: rgb(0, 51, 102);
+}
+
+.rightbar_profile_pendingfriend_btn_wrapper {
+  border: none;
+  background: transparent;
+  display: flex;
+  gap: 1rem;
+}
+
+.rightbar_profile_pendingfriend_btn {
+  padding: 12px 26px;
+  font-size: 20px;
+  font-weight: 500;
+  background: linear-gradient(0deg, #3358f4, #1d8cf8);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 10px;
+  outline: rgb(63, 61, 61);
+  cursor: pointer;
+  z-index: 100;
+  border: none;
+  width: 16rem;
+}
+
+.rightbar_profile_pendingfriend_btn:hover {
+  background: rgb(237, 237, 255);
+  border: 1px solid rgb(0, 51, 102);
+  color: rgb(0, 51, 102);
 }
 
 .rightbar_col_bottom {

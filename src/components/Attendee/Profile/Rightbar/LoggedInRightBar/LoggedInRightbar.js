@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 import "react-loading-skeleton/dist/skeleton.css";
-import "../Dashboard/Profile.css";
-import "./Rightbar.css";
+import "../../Dashboard/Profile.css";
+import "../Rightbar.css";
 import { CiShare2 } from "react-icons/ci";
 import { FaRegHeart, FaRegCommentDots } from "react-icons/fa";
 import { HiDotsHorizontal } from "react-icons/hi";
@@ -16,15 +16,15 @@ import {
   MdOutlineCameraAlt,
 } from "react-icons/md";
 import { RiCloseCircleFill } from "react-icons/ri";
-import profilePicPlaceholder from "../../../../images/placeholder.png";
-import coverPicPlaceholder from "../../../../images/cover-placeholder.jpg";
-import EditProfileModal from "../Edit/EditProfile";
-import EditProfilePictureModal from "../Edit/ProfilePicEditModal";
-import CoverPicEditModal from "../Edit/CoverPicEditModal";
-import ViewProfilePicModal from "../View/ViewProfilePicModal";
-import ViewCoverPicModal from "../View/ViewCoverPicModal";
+import profilePicPlaceholder from "../../../../../images/placeholder.png";
+import coverPicPlaceholder from "../../../../../images/cover-placeholder.jpg";
+import EditProfileModal from "../../Edit/EditProfile";
+import EditProfilePictureModal from "../../Edit/ProfilePicEditModal";
+import CoverPicEditModal from "../../Edit/CoverPicEditModal";
+import ViewProfilePicModal from "../../View/ViewProfilePicModal";
+import ViewCoverPicModal from "../../View/ViewCoverPicModal";
 
-function Rightbar({ user }) {
+function LoggedInRightbar({ user }) {
   const [editProfileModal, setEditProfileModal] = useState(false);
   const [viewProfileModal, setViewProfileModal] = useState(false);
   const [coverView, setCoverView] = useState(false);
@@ -33,6 +33,9 @@ function Rightbar({ user }) {
   const [picChanged, setPicChanged] = useState(false);
   const [profilePicHover, setProfilePicHover] = useState(false);
   const [coverPicHover, setCoverPicHover] = useState(false);
+  const [friends, setFriends] = useState(null);
+  const [following, setFollowing] = useState(null);
+  const [followers, setFollowers] = useState(null);
 
   const [cookies, setCookie, removeCookie] = useCookies([]);
 
@@ -40,6 +43,20 @@ function Rightbar({ user }) {
     toast.error(err, {
       position: "top-right",
     });
+
+  useEffect(() => {
+    if (user) {
+      if (user.friends) {
+        setFriends(user.friends.length);
+      }
+      if (user.following) {
+        setFollowing(user.following.length);
+      }
+      if (user.followers) {
+        setFollowers(user.followers.length);
+      }
+    }
+  });
 
   const toggleEditSecModal = () => {
     setEditSecModal(!editSecModal);
@@ -194,8 +211,22 @@ function Rightbar({ user }) {
                     <div className="rightbar_profile_info_container">
                       <div className="rightbar_profile_info_noise"></div>
                       <div className="rightbar_profile_info_holder">
-                        <div className="rightbar_profile_info_name">
-                          <h1>{user ? user.fullName : "Loading..."}</h1>
+                        <div className="rightbar_profile_info_display_wrapper">
+                          <div className="rightbar_profile_info_name">
+                            <h1>{user ? user.fullName : "Loading..."}</h1>
+                          </div>
+                          <div className="rightbar_profile_info_friend_metrics_wrapper">
+                            <div className="rightbar_profile_info_followers_wrapper">
+                              {friends} {friends === 1 ? "Friend" : "Friends"}
+                            </div>
+                            <div className="rightbar_profile_info_followers_wrapper">
+                              {followers}{" "}
+                              {followers === 1 ? "Follower" : "Followers"}
+                            </div>
+                            <div className="rightbar_profile_info_following_wrapper">
+                              {following} Following
+                            </div>
+                          </div>
                         </div>
 
                         <div className="rightbar_profile_info_cta">
@@ -387,4 +418,4 @@ function Rightbar({ user }) {
   );
 }
 
-export default Rightbar;
+export default LoggedInRightbar;

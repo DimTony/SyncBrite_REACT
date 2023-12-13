@@ -9,9 +9,9 @@ import {
   MdEvent,
   MdOutlineCameraAlt,
 } from "react-icons/md";
-import "./Leftbar.css";
+import "../Leftbar.css";
 
-function Leftbar({ user }) {
+function MyLeftbar({ user }) {
   useEffect(() => {
     const changeBGColor = () => {
       const navItems = document.getElementsByClassName("sidebar_nav_item");
@@ -165,4 +165,4 @@ function Leftbar({ user }) {
   );
 }
 
-export default Leftbar;
+export default MyLeftbar;

@@ -40,6 +40,10 @@
   padding-left: 1rem;
 }
 
+.rmdp-panel {
+  width: 11rem;
+}
+
 .custom_event_dates_next_cta {
   position: relative;
   display: flex;
