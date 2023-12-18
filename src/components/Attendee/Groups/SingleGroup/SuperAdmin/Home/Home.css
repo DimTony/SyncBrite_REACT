@@ -1,0 +1,201 @@
+.superAdmin_groups_right_wrapper {
+    height: 100%;
+  }
+  
+  .superAdmin_groups_right_container {
+    height: 100%;
+  }
+  
+  .superAdmin_groups_rightTop_wrapper {
+    height: 40rem;
+    background: #fff;
+    box-shadow: 0px 10px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .superAdmin_groups_rightTop_container {
+    height: 100%;
+  }
+  
+  .superAdmin_groups_rightTop_banner_wrapper {
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .superAdmin_groups_rightTop_banner_container {
+    width: 80%;
+  }
+  
+  .superAdmin_groups_rightTop_banner {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .superAdmin_groups_rightTop_groupTag_wrapper {
+    height: 35%;
+  }
+  
+  .superAdmin_groups_rightTop_groupTag_container {
+    height: 100%;
+  }
+  
+  .superAdmin_groups_rightTop_groupInfo_wrapper {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .superAdmin_groups_rightTop_groupInfo_container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+  }
+  
+  .superAdmin_groups_rightTop_groupName_container > span {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  
+  .superAdmin_groups_rightTop_groupInvite_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 15rem;
+  }
+  
+  .superAdmin_groups_rightTop_groupInvite_btn {
+    border: none;
+    background: #003366;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .superAdmin_groups_rightTop_groupInvite_btn:hover {
+    background: blue;
+  }
+  
+  .superAdmin_groups_rightTop_groupShare_btn {
+    border: none;
+    background: #cccccc;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #003366;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .superAdmin_groups_rightTop_groupShare_btn:hover {
+    background: blue;
+    color: #fff;
+  }
+  
+  .superAdmin_groups_rightTop_groupBtns_wrapper {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .superAdmin_groups_rightTop_groupBtns_container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+    align-items: center;
+  }
+  
+  .superAdmin_groups_rightTop_pageBtns_wrapper {
+    width: 50%;
+    height: 58%;
+    display: flex;
+  }
+  
+  .superAdmin_groups_rightTop_pageBtns_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .superAdmin_groups_rightTop_pager_wrapper {
+    padding: 1rem 1rem 3rem 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .superAdmin_groups_rightTop_pager_wrapper:hover {
+    background: rgba(166, 207, 255, 0.2);
+  }
+  
+  .rightTop_pager_active {
+    border-bottom: 10px solid blue;
+    color: blue;
+  }
+  
+  .superAdmin_groups_rightTop_filterBtns_wrapper {
+    width: 10%;
+    height: 100%;
+  }
+  
+  .superAdmin_groups_rightTop_filterBtns_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .superAdmin_groups_rightTop_filterBtn {
+    border: none;
+    background: #cccccc;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #003366;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 3rem;
+  }
+  
+  .superAdmin_groups_rightTop_filterBtn:hover {
+    background: blue;
+    color: #fff;
+  }
+  
+  .superAdmin_groups_rightBottom_wrapper {
+    height: 100%;
+    width: 100%;
+  }
+  

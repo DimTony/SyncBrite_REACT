@@ -6,7 +6,7 @@ import axios from "axios";
 import "../Dashboard/Profile.css";
 import profilePicPlaceholder from "../../../../images/placeholder.png";
 import AttendeeNavbar from "../../Navbar/AttendeeNavbar";
-import Leftbar from "../LeftBar/Leftbar";
+import LoggedInLeftbar from "../LeftBar/LoggedInLeftBar/LoggedInLeftbar";
 
 function Friends() {
   const [user, setUser] = useState(null);
@@ -88,7 +88,7 @@ function Friends() {
               setUser={setUser}
             />
             <div className="wrapper">
-              <Leftbar user={user} />
+              <LoggedInLeftbar user={user} />
             </div>
           </div>
         )}

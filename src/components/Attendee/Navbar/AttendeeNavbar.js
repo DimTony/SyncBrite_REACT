@@ -118,9 +118,9 @@ function AttendeeNavbar({ userData, setUser, formUpdated }) {
     const setNavIcon = () => {
       const pathname = window.location.pathname;
       setHome(pathname.includes("/attendee/dashboard"));
-      setGroup(pathname.includes("/attendee/groups"));
-      setEvent(pathname.includes("/attendee/events"));
-      setNotification(pathname.includes("/attendee/notifications"));
+      setGroup(pathname.includes("/groups"));
+      setEvent(pathname.includes("/events"));
+      setNotification(pathname.includes("/notifications"));
     };
 
     setNavIcon();
