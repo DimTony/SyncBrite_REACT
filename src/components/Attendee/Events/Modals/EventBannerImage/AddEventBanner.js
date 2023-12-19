@@ -53,27 +53,6 @@ function AddEventBanner({
     reader.readAsDataURL(selectedFile);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const syncToken = cookies.SyncBriteToken;
-        const url = "http://localhost:8080/api/users";
-        const { data } = await axios.get(url, {
-          withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${syncToken}`,
-          },
-        });
-        setUpdatedUser(data.profile);
-      } catch (error) {
-        console.log(error);
-        toast.error("Failed to update profile");
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <>
       <div className="event_banner_modal2_wrapper">

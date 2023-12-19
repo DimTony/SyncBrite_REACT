@@ -36,6 +36,8 @@ function AllMyEvents() {
   const [cookies, setCookie, removeCookie] = useCookies([]);
   const [userData, setUserData] = useState(null);
   const [events, setEvents] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const eventsPerPage = 6;
   const navigate = useNavigate();
 
   const generateError = (err) =>
@@ -103,6 +105,33 @@ function AllMyEvents() {
     checkCookieAndFetchData();
   }, [navigate]);
 
+  const indexOfLastEvent = currentPage * eventsPerPage;
+  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+  const currentEvents =
+    events && events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPageNumbers = () => {
+    return (
+      <ul className="pagination">
+        {Array.from({ length: Math.ceil(events.length / eventsPerPage) }).map(
+          (_, index) => (
+            <li
+              key={index}
+              className={currentPage === index + 1 ? "active" : ""}
+              onClick={() => paginate(index + 1)}
+            >
+              {index + 1}
+            </li>
+          )
+        )}
+      </ul>
+    );
+  };
+
   return (
     <>
       {userData ? (
@@ -117,75 +146,79 @@ function AllMyEvents() {
             <div className="righter">
               <div className="all_my_events_wrapper">
                 <div className="righter_events_contents_discover_container">
-                  {events &&
-                    events.map((event, index) => (
-                      <span
-                        key={index}
-                        className="righter_events_contents_item_container size_all_my_events_container"
-                        style={{
-                          background: "#fff",
-                          maxHeight: "348px",
-                          maxWidth: "485px",
-                          minHeight: "348px",
-                          minWidth: "485px",
-                          margin: "0 1rem 1rem 0",
-                        }}
-                      >
-                        <Card className="righter_events_contents_item">
-                          <a href={`/attendee/events/${event._id}`}>
-                            {event.bannerImage !==
-                            "https://placehold.co/640x374" ? (
-                              <div className="all_my_events_set_image_wrapper">
-                                <div className="all_my_events_set_image_container">
-                                  <Card.Img
-                                    variant="top"
-                                    src={event.bannerImage}
-                                    className="all_my_events_set_image"
-                                  />
+                  <div className="all_my_events_container">
+                    {currentEvents &&
+                      currentEvents.map((event, index) => (
+                        <span
+                          key={index}
+                          className="righter_events_contents_item_container size_all_my_events_container"
+                          style={{
+                            background: "#fff",
+                            maxHeight: "348px",
+                            maxWidth: "485px",
+                            minHeight: "348px",
+                            minWidth: "485px",
+                            margin: "0 1rem 1rem 0",
+                          }}
+                        >
+                          <Card className="righter_events_contents_item">
+                            <a href={`/attendee/events/${event._id}`}>
+                              {event.bannerImage !==
+                              "https://placehold.co/640x374" ? (
+                                <div className="all_my_events_set_image_wrapper">
+                                  <div className="all_my_events_set_image_container">
+                                    <Card.Img
+                                      variant="top"
+                                      src={event.bannerImage}
+                                      className="all_my_events_set_image"
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                            ) : (
-                              <div className="all_my_events_no_set_image_wrapper">
-                                <div className="all_my_events_no_set_image_container">
-                                  <div className="single_event_main_top_date_item">
-                                    <div className="single_event_main_top_date_month">
-                                      <h2>month</h2>
-                                    </div>
-                                    <div className="single_event_main_top_date_day">
-                                      <h2>day</h2>
+                              ) : (
+                                <div className="all_my_events_no_set_image_wrapper">
+                                  <div className="all_my_events_no_set_image_container">
+                                    <div className="single_event_main_top_date_item">
+                                      <div className="single_event_main_top_date_month">
+                                        <h2>month</h2>
+                                      </div>
+                                      <div className="single_event_main_top_date_day">
+                                        <h2>day</h2>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            )}
-                            <Card.Body className="righter_events_contents_item_body">
-                              <Card.Title
-                                className="righter_events_contents_item_body_title"
-                                style={{ fontSize: "18px" }}
-                              >
-                                {event.eventStartDate} AT {event.eventStartTime}
-                              </Card.Title>
-                              <Card.Text className="righter_events_contents_item_body_info">
-                                <span
-                                  className="righter_events_contents_item_body_info_name"
-                                  style={{ fontSize: "20px" }}
+                              )}
+                              <Card.Body className="righter_events_contents_item_body">
+                                <Card.Title
+                                  className="righter_events_contents_item_body_title"
+                                  style={{ fontSize: "18px" }}
                                 >
-                                  {event.eventName}
-                                </span>
-                                <span className="righter_events_contents_item_body_info_location">
-                                  {event.eventLocation}{" "}
-                                </span>
-                                <span className="righter_events_contents_item_body_info_attendance">
-                                  {event.going} Going • {event.interested}{" "}
-                                  Interested • {event.cantGo} Can't Go
-                                </span>
-                              </Card.Text>
-                            </Card.Body>
-                          </a>
-                        </Card>
-                      </span>
-                    ))}
+                                  {event.eventStartDate} AT{" "}
+                                  {event.eventStartTime}
+                                </Card.Title>
+                                <Card.Text className="righter_events_contents_item_body_info">
+                                  <span
+                                    className="righter_events_contents_item_body_info_name"
+                                    style={{ fontSize: "20px" }}
+                                  >
+                                    {event.eventName}
+                                  </span>
+                                  <span className="righter_events_contents_item_body_info_location">
+                                    {event.eventLocation}{" "}
+                                  </span>
+                                  <span className="righter_events_contents_item_body_info_attendance">
+                                    {event.going} Going • {event.interested}{" "}
+                                    Interested • {event.cantGo} Can't Go
+                                  </span>
+                                </Card.Text>
+                              </Card.Body>
+                            </a>
+                          </Card>
+                        </span>
+                      ))}
+                  </div>
                 </div>
+                {events && renderPageNumbers()}
               </div>
             </div>
           </div>

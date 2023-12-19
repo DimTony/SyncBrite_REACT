@@ -103,17 +103,6 @@ function CreateEventModal({
       ...prevData,
       [name]: value,
     }));
-
-    // if (name === "link") {
-    //   setIsValid(urlRegex.test(value));
-    //   setErrorMessages((prevErrors) => ({
-    //     ...prevErrors,
-    //     locationLink: urlRegex.test(value) ? "" : "Invalid link format",
-    //   }));
-    // } else {
-    //   // For other fields, perform general validation
-    //   validateField(name, value);
-    // }
   };
 
   const handleEventTypeChange = (e) => {

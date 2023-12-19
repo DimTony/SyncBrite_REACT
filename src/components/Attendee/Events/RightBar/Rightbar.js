@@ -15,11 +15,65 @@ import FriendEvents from "../RightBar/FriendEvents/FriendEvents";
 import FollowingEvents from "../RightBar/FollowingEvents/FollowingEvents";
 import GroupEvents from "../RightBar/GroupEvents/GroupEvents";
 
-function Rightbar({}) {
+function Rightbar({ userData, setUserData }) {
+  const [cookies] = useCookies([]);
   const [topEvents, setTopEvents] = useState(true);
+  const [topEventsItem, setTopEventsItem] = useState(true);
   const [friendEvents, setFriendEvents] = useState(false);
   const [followingEvents, setFollowingEvents] = useState(false);
   const [groupEvents, setGroupEvents] = useState(false);
+  const navigate = useNavigate();
+
+  const generateError = (err) =>
+    toast.error(err, {
+      position: "top-right",
+    });
+
+  useEffect(() => {
+    const fetchTopEventsData = async () => {
+      const syncToken = cookies.SyncBriteToken;
+
+      if (syncToken) {
+        try {
+          const response = await axios.get(
+            "http://localhost:8080/api/events/top",
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${syncToken}`,
+              },
+            }
+          );
+
+          if (response.status === 200) {
+            setUserData(response.data.user);
+            setTopEventsItem(response.data.events);
+          } else {
+            generateError(
+              "Failed to verify the user.\n REDIRECTING TO LOGIN..."
+            );
+            console.error("Failed to verify the cookie");
+            setTimeout(() => {
+              navigate("/login");
+            }, 3000);
+          }
+        } catch (error) {
+          generateError(error, "REDIRECTING TO LOGIN...");
+          console.error("Error fetching user data:", error);
+          setTimeout(() => {
+            navigate("/login");
+          }, 3000);
+        }
+      } else {
+        generateError("Server Error.\nREDIRECTING TO LOGIN...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+      }
+    };
+
+    fetchTopEventsData();
+  }, [navigate]);
 
   const toggleTopEvents = () => {
     setTopEvents(true);
@@ -138,7 +192,7 @@ function Rightbar({}) {
           </div>
           <div className="righter_events_contents_wrapper">
             <div className="righter_events_contents_discover_container">
-              <TopEvents events={topEvents} />
+              <TopEvents events={topEvents} eventItems={topEventsItem} />
 
               <FriendEvents events={friendEvents} />
 
@@ -146,11 +200,6 @@ function Rightbar({}) {
 
               <GroupEvents events={groupEvents} />
             </div>
-          </div>
-          <div className="righter_events_contents_pager_btns">
-            <div>Prev</div>
-            <div>1, 2, 3, ...</div>
-            <div>Next</div>
           </div>
         </div>
       </div>

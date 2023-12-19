@@ -31,6 +31,10 @@ import Videos from "./components/Attendee/Profile/Videos/Videos";
 import Support from "./components/Attendee/Profile/Support/Support";
 import SingleEvent from "./components/Attendee/Events/RightBar/SingleEvent/SingleEvent";
 import AllMyEvents from "./components/Attendee/Events/RightBar/MyEvents/AllMyEvents/AllMyEvents";
+import CreateGroup from "./components/Attendee/Groups/Create/CreateGroup.js";
+import SingleGroup from "./components/Attendee/Groups/SingleGroup/SingleGroup";
+import { LandinngPageOne } from "./components/Test/Global";
+import { ComingSoon } from "./components/ComingSoon/ComingSoon";
 // import ContextProvider from "./context/ContextProvider";
 
 function App() {
@@ -65,6 +69,18 @@ function App() {
             Component={AttendeeDashboard}
           />
           <Route path="/attendee/groups" exact Component={AttendeeGroups} />
+          <Route path="/attendee/groups/create" exact Component={CreateGroup} />
+          <Route
+            path="/attendee/groups/:groupId"
+            exact
+            Component={SingleGroup}
+          />
+          <Route
+            path="/attendee/groups/posts/:postId"
+            exact
+            Component={ComingSoon}
+          />
+
           <Route path="/attendee/events" exact Component={AttendeeEvents} />
           <Route
             path="/attendee/:username/events"
@@ -75,6 +91,11 @@ function App() {
             path="/attendee/events/:eventId"
             exact
             Component={SingleEvent}
+          />
+          <Route
+            path="/attendee/events/posts/:postId"
+            exact
+            Component={ComingSoon}
           />
           <Route
             path="/attendee/notifications"
@@ -95,7 +116,7 @@ function App() {
           {/* Test Routing */}
           <Route path="/secret" exact Component={HeroOne} />
           <Route path="/login-test" exact Component={LoginTest} />
-          <Route path="/t3" exact Component={HeroThree} />
+          <Route path="/t3" exact Component={LandinngPageOne} />
 
           {/* Catch 404 Routing */}
           <Route path="*" exact Component={Missing} />
