@@ -57,23 +57,19 @@ function App() {
           />
 
           <Route path="/dashboard" exact Component={Dashboard} />
-          <Route
-            path="/organizer-dashboard"
-            exact
-            Component={OrganizerDashboard}
-          />
+          <Route path="/organizer-dashboard" exact Component={ComingSoon} />
           {/* Attendee Routing Start*/}
           <Route
             path="/attendee/dashboard"
             exact
             Component={AttendeeDashboard}
           />
-          <Route path="/attendee/groups" exact Component={AttendeeGroups} />
-          <Route path="/attendee/groups/create" exact Component={CreateGroup} />
+          <Route path="/attendee/groups" exact Component={ComingSoon} />
+          <Route path="/attendee/groups/create" exact Component={ComingSoon} />
           <Route
             path="/attendee/groups/:groupId"
             exact
-            Component={SingleGroup}
+            Component={ComingSoon}
           />
           <Route
             path="/attendee/groups/posts/:postId"
@@ -97,19 +93,39 @@ function App() {
             exact
             Component={ComingSoon}
           />
-          <Route
-            path="/attendee/notifications"
-            exact
-            Component={AttendeeNotifications}
-          />
+          <Route path="/attendee/notifications" exact Component={ComingSoon} />
           <Route path="/profile/:username" exact Component={AttendeeProfile} />
-          <Route path="/profile/:username/friends" exact Component={Friends} />
-          <Route path="/profile/:username/groups" exact Component={Groups} />
-          <Route path="/profile/:username/events" exact Component={Events} />
-          <Route path="/profile/:username/likes" exact Component={Likes} />
-          <Route path="/profile/:username/photos" exact Component={Photos} />
-          <Route path="/profile/:username/videos" exact Component={Videos} />
-          <Route path="/profile/:username/support" exact Component={Support} />
+          <Route
+            path="/profile/:username/friends"
+            exact
+            Component={ComingSoon}
+          />
+          <Route
+            path="/profile/:username/groups"
+            exact
+            Component={ComingSoon}
+          />
+          <Route
+            path="/profile/:username/events"
+            exact
+            Component={ComingSoon}
+          />
+          <Route path="/profile/:username/likes" exact Component={ComingSoon} />
+          <Route
+            path="/profile/:username/photos"
+            exact
+            Component={ComingSoon}
+          />
+          <Route
+            path="/profile/:username/videos"
+            exact
+            Component={ComingSoon}
+          />
+          <Route
+            path="/profile/:username/support"
+            exact
+            Component={ComingSoon}
+          />
 
           {/* Attendee Routing End*/}
 
