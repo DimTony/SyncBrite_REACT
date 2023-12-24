@@ -1,0 +1,401 @@
+ <div className="superAdmin_groups_rightBottom_discussionLeft_firstPost_wrapper">
+              <div className="superAdmin_groups_rightBottom_discussionLeft_firstPost_container">
+                <div className="superAdmin_groups_rightBottom_discussionLeft_post_wrapper">
+                  <div className="superAdmin_groups_rightBottom_discussionLeft_post_container">
+                    <div className="superAdmin_groups_rightBottom_discussionLeft_post_item">
+                      <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_wrapper">
+                        <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header">
+                          <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_img_wrapper">
+                            <img
+                              src={
+                                superAdmin ? (
+                                  superAdmin.profilePic
+                                ) : (
+                                  <Skeleton />
+                                )
+                              }
+                              className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_img"
+                              alt="event_post_img"
+                            />
+                          </div>
+                          <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_wrapper">
+                            <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_name_wrapper">
+                              <a
+                                href={`/profile/${
+                                  superAdmin ? (
+                                    superAdmin.userName
+                                  ) : (
+                                    <Skeleton />
+                                  )
+                                }`}
+                              >
+                                {" "}
+                                {superAdmin ? (
+                                  superAdmin.fullName
+                                ) : (
+                                  <Skeleton />
+                                )}
+                              </a>{" "}
+                              <h6>
+                                created the group{" "}
+                                <a
+                                  href={`/attendee/groups/${group.id}`}
+                                  className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_groupName"
+                                >
+                                  {group.name}
+                                </a>
+                                .
+                              </h6>
+                            </div>
+                            <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_dateLocation_wrapper">
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_dateLocation">
+                                {group ? group.createdAt : <Skeleton />}
+                              </div>
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_dateLocation_icon_wrapper">
+                                &nbsp;• {groupPrivacyIcon}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_btn_wrapper">
+                            <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_btn_container">
+                              <FaEllipsisH
+                                size={20}
+                                className="superAdmin_groups_rightBottom_discussionLeft_post_item_header_btn"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_footer_wrapper">
+                        <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_footer_container">
+                          <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_wrapper">
+                            <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_container">
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_item">
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_like">
+                                  {postLikePending ? (
+                                    <ClipLoader size={10} />
+                                  ) : (
+                                    postLikes
+                                  )}{" "}
+                                  Likes
+                                </div>
+                              </div>
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_item">
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_comment">
+                                  {/* {eventInfo ? (
+                                    eventInfo.comments
+                                  ) : (
+                                    <Skeleton />
+                                  )}{" "} */}
+                                  Comments
+                                </div>
+                              </div>
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_item">
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_share">
+                                  {/* {eventInfo ? eventInfo.shares : <Skeleton />}{" "} */}
+                                  shares
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btns_wrapper">
+                            <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_container">
+                              <div
+                                onClick={postLikeUnlikeAction}
+                                className={`superAdmin_groups_rightBottom_discussionLeft_post_item_btn_like_item ${
+                                  postLiked && "like-active"
+                                }`}
+                              >
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_icon">
+                                  {postLikePending ? (
+                                    <ClipLoader size={20} color={"#036"} />
+                                  ) : (
+                                    <FaRegHeart size={20} />
+                                  )}
+                                </div>
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_name">
+                                  {postLiked ? "Liked" : "like"}
+                                </div>
+                              </div>
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item">
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_icon">
+                                  <FaRegCommentDots size={20} />
+                                </div>
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_name">
+                                  Comment
+                                </div>
+                              </div>
+                              <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item">
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_icon">
+                                  <CiShare2 size={20} />
+                                </div>
+                                <div className="superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_name">
+                                  Share
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_wrapper {
+background: white;
+height: 6.6rem;
+padding: 1rem;
+border-radius: 10px 10px 0 0;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header {
+height: 100%;
+display: flex;
+flex-direction: row;
+width: 100%;
+border-bottom: 1px solid #cccccc;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_img_wrapper {
+width: 4rem;
+height: 4rem;
+margin-right: 1rem;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_img {
+width: 100%;
+height: 100%;
+object-fit: fill;
+border-radius: 50%;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_wrapper {
+width: 80%;
+display: flex;
+flex-direction: column;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_name_wrapper {
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_name_wrapper
+
+> a {
+> color: black;
+> margin-right: 0.5rem;
+> margin-bottom: 0;
+> font-size: 19px;
+> font-weight: 500;
+> }
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_name_wrapper
+
+> a:hover {
+> color: blue;
+> }
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_name_wrapper
+
+> h6 {
+> margin-bottom: 0;
+> font-size: 19px;
+> font-weight: 400;
+> }
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_info_groupName {
+color: #003366;
+font-weight: 600;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_dateLocation_wrapper {
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_dateLocation_icon_wrapper {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_btn_wrapper {
+display: flex;
+align-items: center;
+width: 5rem;
+justify-content: center;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_header_btn:hover {
+cursor: pointer;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_banner_wrapper {
+max-width: 856px;
+max-height: 308px;
+overflow: hidden;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_banner_container {
+width: 100%;
+height: 100%;
+overflow: hidden;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_banner {
+width: 100%;
+height: auto;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_eventInfo_container {
+padding: 1rem;
+border-left: 1px solid #65676b;
+border-right: 1px solid #65676b;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_eventDateTime {
+font-size: 17px;
+color: red;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_eventName {
+font-size: 20px;
+font-weight: 600;
+color: black;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_eventLocation {
+font-size: 18px;
+color: black;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Bcontent_eventMetrics {
+font-size: 18px;
+color: black;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Ncontent_container {
+padding: 1rem;
+border-left: 1px solid #65676b;
+border-right: 1px solid #65676b;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Ncontent_eventDateTime {
+font-size: 17px;
+color: red;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Ncontent_eventName {
+font-size: 20px;
+font-weight: 600;
+color: black;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Ncontent_eventLocation {
+font-size: 18px;
+color: black;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_Ncontent_eventMetrics {
+font-size: 18px;
+color: black;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_footer_container {
+display: flex;
+flex-direction: column;
+padding: 0 1rem 1rem 1rem;
+background: white;
+border-radius: 0 0 10px 10px;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_wrapper {
+border-bottom: 1px solid grey;
+padding: 0 1rem 0 1rem;
+height: 2rem;
+margin-bottom: 1rem;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_container {
+display: flex;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_metrics_item {
+margin-right: 1rem;
+font-size: 15px;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btns_wrapper {
+padding: 0 1rem 0 1rem;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_container {
+display: flex;
+justify-content: space-around;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 13rem;
+height: 3rem;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item:hover {
+background: #888;
+font-weight: 500;
+border: 1px solid white;
+color: white;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_like_item {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 13rem;
+height: 3rem;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_like_item:hover {
+background: #888;
+font-weight: 500;
+border: 1px solid white;
+color: white;
+}
+
+.like-active {
+background: #a6cfff;
+font-weight: 500;
+box-shadow: rgba(0, 0, 0, 0.68) 0px 0px 16px -8px;
+color: #036;
+}
+
+.like-active:hover {
+background: #a6cfff;
+font-weight: 500;
+box-shadow: rgba(0, 0, 0, 0.68) 0px 0px 16px -8px;
+color: #036;
+border: 1px solid #036;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_icon {
+position: relative;
+right: 0.5rem;
+}
+
+.superAdmin_groups_rightBottom_discussionLeft_post_item_btn_item_name {
+font-size: 20px;
+}

@@ -1,0 +1,204 @@
+.comingSoon_wrapper {
+  overflow: hidden;
+}
+
+.comingSoon_header_wrapper {
+  width: 100%;
+  padding: 1rem;
+}
+
+.comingSoon_header_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.comingSoon_header_hamburger {
+  display: none;
+}
+
+.comingSoon_header_logo_wrapper {
+  width: 16rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comingSoon_header_logo_font {
+  font-size: 19px;
+  width: 4rem;
+  font-weight: 700;
+}
+
+.comingSoon_header_nav_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comingSoon_header_nav_wrapper > li {
+  color: rgb(120, 67, 233);
+  font-weight: 600;
+}
+
+.comingSoon_header_nav_link {
+  color: rgb(120, 67, 233);
+}
+
+.comingSoon_header_nav_link:hover {
+  color: #000;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.comingSoon_body_wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.comingSoon_body_container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  height: 100%;
+}
+
+.comingSoon_bodyLeft_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.comingSoon_bodyLeft_one_wrapper {
+  display: flex;
+  margin-top: 2rem;
+  max-width: max-content;
+  align-items: center;
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  padding: 0.25rem;
+}
+
+.comingSoon_bodyLeft_oneLeft_wrapper {
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1rem;
+}
+
+.comingSoon_bodyLeft_oneLeft_font {
+  font-size: 1.5rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.comingSoon_bodyLeft_oneRight_font {
+  font-size: 1.5rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.comingSoon_bodyLeft_two_font {
+  font-family: Chewy;
+  margin-top: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(120, 67, 233);
+  font-size: 7.75rem;
+  line-height: 1;
+}
+
+.comingSoon_bodyLeft_three_font {
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+  text-align: center;
+}
+
+.countdown_navs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.countdown_navs > li {
+  color: rgb(120, 67, 233);
+  font-size: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.comingSoon_bodyLeft_four_form {
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: flex-start;
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.comingSoon_bodyLeft_four_form_input {
+  border: 1px solid;
+  border-radius: 10px 0 0 10px;
+  padding: 1.25rem;
+  height: 3rem;
+  width: 35rem;
+  font-size: 1.5rem;
+}
+
+.comingSoon_bodyLeft_four_form_btn {
+  height: 3rem;
+  border-radius: 0 10px 10px 0;
+  padding: 0.25rem;
+  background-color: #ccc;
+  font-weight: 700;
+  width: 5rem;
+  font-size: 1.4rem;
+}
+
+.comingSoon_bodyLeft_four_form_btn:hover {
+  background-color: blue;
+  color: #fff;
+}
+
+.comingSoon_bodyLeft_four_form_text {
+  position: relative;
+  font-size: 1rem;
+}
+
+.comingSoon_bodyRight_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.comingSoon_bodyRight_img {
+  width: 40rem;
+  height: fit-content;
+  object-fit: cover;
+}

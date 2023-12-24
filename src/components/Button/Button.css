@@ -32,6 +32,11 @@
   transition: all 0.3s ease-out;
 }
 
+.btn__cta:hover {
+  border-color: #003366;
+  font-weight: 500;
+}
+
 .btn__medium {
   padding: 8px 30px;
   font-size: 20px;

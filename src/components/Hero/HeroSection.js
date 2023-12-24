@@ -1,55 +1,68 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { FaUserPlus } from "react-icons/fa6";
+import { TiDocumentText } from "react-icons/ti";
 import "../../App.css";
-import { Button } from "../Button/Button";
 import homePic from "../../images/onboard.png";
-import signupIcon from "../../images/signup-icon.png";
-import docIcon from "../../images/doc-icon.png";
 import "./HeroSection.css";
 
 function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleNav = (url) => {
+    navigate(url);
+  };
+
   return (
-    <Row className="hero_row">
-      <Col md={7}>
-        <div className="hero_container left">
-          <h2 className="hero_medium_text">
-            <span className="hero_medium_span">•</span>Let's keep track for you!
-          </h2>
-          <h1 className="hero_large_text">
-            Empower Your Events with&nbsp;
-            <p className="brand_text">SyncBrite</p>
-          </h1>
-          <p>Streamline and enhance your event management process.</p>
-          <div className="hero_btns">
-            <Button
-              buttonTo="/login"
-              className="btns"
-              buttonStyle="btn_primary"
-              buttonSize="btn__large"
-            >
-              Get Started
-              <img src={signupIcon} className="signup_icon" alt="signup_icon" />
-            </Button>
-            <Button
-              buttonTo="/docs"
-              className="btns"
-              buttonStyle="btn__outline"
-              buttonSize="btn__large"
-            >
-              Read the Docs{" "}
-              <img src={docIcon} className="doc_icon" alt="doc_icon" />
-            </Button>
+    <div className="home_hero_wrapper">
+      <div className="home_hero_container">
+        <div className="home_heroLeft_wrapper">
+          <div className="home_heroLeft_container">
+            <div className="home_heroLeft_smallText_wrapper">
+              <div className="home_heroLeft_smallText_container">
+                <span>Let's keep track for you!</span>
+              </div>
+            </div>
+            <div className="home_heroLeft_LargeText_wrapper">
+              <div className="home_heroLeft_LargeText_container">
+                <span>Empower Your Events with</span>
+                <p>SyncBrite</p>
+              </div>
+            </div>
+            <div className="home_heroLeft_MediumText_wrapper">
+              <div className="home_heroLeft_MediumText_container">
+                <span>
+                  Streamline and enhance your event management processes.
+                </span>
+              </div>
+            </div>
+            <div className="home_heroLeft_Btns_wrapper">
+              <div className="home_heroLeft_Btns_container">
+                <button
+                  onClick={() => handleNav("/login")}
+                  className="home_heroLeft_GetStartedBtn"
+                >
+                  <p className="p_no_margin">Get Started</p>
+                  <FaUserPlus size={25} />
+                </button>
+                <button
+                  onClick={() => handleNav("/docs")}
+                  className="home_heroLeft_ReadDocsBtn"
+                >
+                  <p className="p_no_margin">Read the Docs</p>
+                  <TiDocumentText size={25} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </Col>
-      <Col md={5}>
-        <div className="hero_container right">
-          <div className="home_pic_container">
-            <img src={homePic} className="home_pic" alt="hero_pic" />
+        <div className="home_heroRight_wrapper">
+          <div className="home_heroRight_container">
+            <img src={homePic} className="home_heroRight_pic" alt="hero_pic" />
           </div>
         </div>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }
 

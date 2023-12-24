@@ -1,0 +1,73 @@
+.attendee_container {
+  display: flex;
+  flex-direction: column;
+  background: url(http://localhost:3000/static/media/home-bg.979a2b7ec1c83f279173.jpg)
+    center center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.attendee_form_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+}
+
+.attendee_form_header {
+  color: white;
+  font-family: "Chewy";
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
+.attendee_form_input_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.attendee_form_label > p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.attendee_form_input {
+  outline: none;
+  border: none;
+  width: 370px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #edf5f3;
+  margin-bottom: 1rem;
+  font-size: 15px;
+  height: 2rem;
+  font-weight: 600;
+}
+
+.attendee_signup_btn_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.attendee_signup_btn {
+  margin: 10px 0 10px 0;
+  padding: 1rem;
+  font-size: 20px;
+  background-color: #fff;
+  color: #003366;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}

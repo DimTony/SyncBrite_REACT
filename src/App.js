@@ -9,7 +9,7 @@ import AttendeeSignup from "./components/Signup/Attendee/AttendeeSignup";
 import EmailVerify from "./components/Signup/EmailVerify/EmailVerify";
 import Dashboard from "./components/Dashboard/Dashboard";
 import LoginTest from "./components/Test/LoginTest";
-import RegTest, { HeroThree } from "./components/Test/RegTest";
+import HeroThree from "./components/Test/RegTest";
 import Secret, { HeroOne } from "./components/Test/Secret";
 import Admin from "./components/Admin/Admin";
 import Missing from "./components/Missing/Missing";
@@ -31,6 +31,10 @@ import Videos from "./components/Attendee/Profile/Videos/Videos";
 import Support from "./components/Attendee/Profile/Support/Support";
 import SingleEvent from "./components/Attendee/Events/RightBar/SingleEvent/SingleEvent";
 import AllMyEvents from "./components/Attendee/Events/RightBar/MyEvents/AllMyEvents/AllMyEvents";
+import CreateGroup from "./components/Attendee/Groups/Create/CreateGroup.js";
+import SingleGroup from "./components/Attendee/Groups/SingleGroup/SingleGroup";
+import ComingSoon from "./components/CominSoon/ComingSoon.js";
+import Signup from "./components/Signup/Attendee/SignUp.js";
 // import ContextProvider from "./context/ContextProvider";
 
 function App() {
@@ -45,7 +49,7 @@ function App() {
 
           {/* SignUp Onboarding*/}
           <Route path="/signup" exact Component={UserSelect} />
-          <Route path="/attendee-signup" exact Component={AttendeeSignup} />
+          <Route path="/attendee-signup" exact Component={Signup} />
           <Route
             path="/api/users/:id/verify/:token"
             exact
@@ -65,6 +69,18 @@ function App() {
             Component={AttendeeDashboard}
           />
           <Route path="/attendee/groups" exact Component={AttendeeGroups} />
+          <Route path="/attendee/groups/create" exact Component={CreateGroup} />
+          <Route
+            path="/attendee/groups/:groupId"
+            exact
+            Component={SingleGroup}
+          />
+          <Route
+            path="/attendee/groups/posts/:postId"
+            exact
+            Component={ComingSoon}
+          />
+
           <Route path="/attendee/events" exact Component={AttendeeEvents} />
           <Route
             path="/attendee/:username/events"
@@ -75,6 +91,11 @@ function App() {
             path="/attendee/events/:eventId"
             exact
             Component={SingleEvent}
+          />
+          <Route
+            path="/attendee/events/posts/:postId"
+            exact
+            Component={ComingSoon}
           />
           <Route
             path="/attendee/notifications"
@@ -93,9 +114,10 @@ function App() {
           {/* Attendee Routing End*/}
 
           {/* Test Routing */}
-          <Route path="/secret" exact Component={HeroOne} />
+          <Route path="/secret1" exact Component={ComingSoon} />
+          <Route path="/secret" exact Component={HeroThree} />
           <Route path="/login-test" exact Component={LoginTest} />
-          <Route path="/t3" exact Component={HeroThree} />
+          <Route path="/t3" exact Component={Signup} />
 
           {/* Catch 404 Routing */}
           <Route path="*" exact Component={Missing} />

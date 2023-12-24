@@ -16,16 +16,13 @@ body {
 }
 
 a {
-  color: #003366;
   cursor: pointer;
   text-decoration: none;
 }
 
 a:-webkit-any-link {
-  color: -webkit-link;
   cursor: pointer;
   text-decoration: none;
-  color: black;
 }
 
 ul {
@@ -44,7 +41,13 @@ li {
 }
 
 .main_container {
-  height: 100vh;
+  height: auto;
+}
+
+.main_wrapper {
+  height: auto;
+  position: relative;
+  top: 4rem;
 }
 
 .skeleton_container {
@@ -117,9 +120,6 @@ li {
   overflow-x: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
-  position: sticky;
-  z-index: 0;
-  top: var(--header-height);
   max-width: 360px;
   max-height: 100vh;
   min-width: 280px;
@@ -132,9 +132,6 @@ li {
   overflow-x: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
-  position: sticky;
-  z-index: 0;
-  top: var(--header-height);
   max-width: 360px;
   max-height: 100vh;
   min-width: 280px;

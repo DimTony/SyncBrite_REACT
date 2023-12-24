@@ -106,7 +106,6 @@ function SingleEvent() {
 
           if (response.status === 200) {
             const eventData = response.data.event;
-            console.log("ebebebe", eventData);
             const user = response.data.user;
             const eventLikesArray = response.data.event.likes;
             setEventInfo(eventData);
@@ -286,6 +285,13 @@ function SingleEvent() {
                   }, 3000);
                 }
 
+                if (error.response.data.message === "User Not Found") {
+                  generateError("User Not Found. Redirecting...");
+                  setTimeout(() => {
+                    navigate("/attendee/events");
+                  }, 3000);
+                }
+
                 generateError(
                   `${error.response.data.message}, PLEASE TRY AGAIN LATER...`
                 );
@@ -377,7 +383,6 @@ function SingleEvent() {
     const eventId = eventIdMatch[1];
 
     try {
-      // Make an asynchronous Axios PATCH request to the endpoint with the determined likeValue
       const response = await axios.patch(
         `http://localhost:8080/api/events/like/${eventId}`,
         { value: likeValueToSend },
@@ -397,8 +402,8 @@ function SingleEvent() {
         setLikePending(false);
       }
     } catch (error) {
-      // Handle errors if any
       console.error("Error making the request", error);
+      setLikePending(false);
     }
   };
 

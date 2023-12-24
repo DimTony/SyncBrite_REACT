@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.all_my_events_container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
 .all_my_events_set_image_wrapper {
   max-width: 400px;
   max-height: 200px;
@@ -34,4 +40,31 @@
   min-height: 200px;
   overflow: hidden;
   border-radius: 10px;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pagination li {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid #036;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination li.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.pagination li:hover {
+  background-color: #ddd;
+  color: #036;
+  border: 1px solid #fff;
 }
