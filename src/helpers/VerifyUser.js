@@ -2,7 +2,7 @@ import axios from "axios";
 
 const VerifyUser = async (navigate) => {
   const token = localStorage.getItem("token");
-  const url = `http://localhost:8080/api/auth/verify/${token}`;
+  const url = `https://syncbrite-server.onrender.com/api/auth/verify/${token}`;
 
   try {
     const { data: res } = await axios.post(url);

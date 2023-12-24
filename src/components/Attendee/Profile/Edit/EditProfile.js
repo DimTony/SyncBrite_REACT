@@ -67,7 +67,8 @@ function EditProfileModal({
       setLoading(true);
       try {
         const syncToken = cookies.SyncBriteToken;
-        const url = "http://localhost:8080/api/users/edit/profile";
+        const url =
+          "https://syncbrite-server.onrender.com/api/users/edit/profile";
 
         const formData = new FormData();
         formData.append("firstName", data.firstName);
@@ -130,7 +131,7 @@ function EditProfileModal({
     const fetchData = async () => {
       try {
         const syncToken = cookies.SyncBriteToken;
-        const url = "http://localhost:8080/api/users";
+        const url = "https://syncbrite-server.onrender.com/api/users";
         const { data } = await axios.get(url, {
           withCredentials: true,
           headers: {

@@ -144,7 +144,7 @@ function Leftbar({
       const groupId = groupIdMatch[1];
 
       const response = await axios.post(
-        `http://localhost:8080/api/groups/invites/send/${groupId}`,
+        `https://syncbrite-server.onrender.com/api/groups/invites/send/${groupId}`,
         emails,
         {
           withCredentials: true,

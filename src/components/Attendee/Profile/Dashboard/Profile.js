@@ -39,7 +39,7 @@ function Profile() {
             const username = userNameMatch[1];
 
             const { data } = await axios.post(
-              "http://localhost:8080/api/auth/verify-cookie",
+              "https://syncbrite-server.onrender.com/api/auth/verify-cookie",
               {},
               { withCredentials: true }
             );
@@ -48,7 +48,7 @@ function Profile() {
               navigate("/attendee/dashboard");
             } else if (data.success && data.user.userName !== username) {
               const usernameData = await axios.get(
-                `http://localhost:8080/api/users/profile/${username}`,
+                `https://syncbrite-server.onrender.com/api/users/profile/${username}`,
                 {
                   withCredentials: true,
                   headers: { Authorization: `Bearer ${syncToken}` },

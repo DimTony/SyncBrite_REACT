@@ -22,10 +22,13 @@ const MyEvents = () => {
     const fetchData = async () => {
       try {
         const syncToken = cookies.SyncBriteToken;
-        const response = await axios.get("http://localhost:8080/api/events", {
-          withCredentials: true,
-          headers: { Authorization: `Bearer ${syncToken}` },
-        });
+        const response = await axios.get(
+          "https://syncbrite-server.onrender.com/api/events",
+          {
+            withCredentials: true,
+            headers: { Authorization: `Bearer ${syncToken}` },
+          }
+        );
         const data = response.data;
 
         if (data.success) {

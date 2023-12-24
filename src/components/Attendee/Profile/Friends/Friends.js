@@ -36,7 +36,7 @@ function Friends() {
             const username = userNameMatch[1];
 
             const { data } = await axios.post(
-              "http://localhost:8080/api/auth/verify-cookie",
+              "https://syncbrite-server.onrender.com/api/auth/verify-cookie",
               {},
               { withCredentials: true }
             );

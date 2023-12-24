@@ -34,7 +34,7 @@ const SingleGroup = () => {
           const groupId = groupIdMatch[1];
 
           const response = await axios.get(
-            `http://localhost:8080/api/groups/${groupId}`,
+            `https://syncbrite-server.onrender.com/api/groups/${groupId}`,
             {
               withCredentials: true,
               headers: {

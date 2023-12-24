@@ -59,12 +59,16 @@ function EditProfilePictureModal({
     const formData = new FormData();
     formData.append("profilePic", file);
     axios
-      .patch("http://localhost:8080/api/users/edit/profile-pic", formData, {
-        withCredentials: true,
-        headers: {
-          Authorization: `Bearer ${synctoken}`,
-        },
-      })
+      .patch(
+        "https://syncbrite-server.onrender.com/api/users/edit/profile-pic",
+        formData,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${synctoken}`,
+          },
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           setLoading(false);

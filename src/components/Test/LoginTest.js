@@ -20,7 +20,7 @@
 //     e.preventDefault();
 //     try {
 //       const { data } = await axios.post(
-//         "http://localhost:8080/api/auth/login",
+//         "https://syncbrite-server.onrender.com/api/auth/login",
 //         {
 //           ...values,
 //         },

@@ -36,7 +36,7 @@ function Rightbar({ userData, setUserData }) {
       if (syncToken) {
         try {
           const response = await axios.get(
-            "http://localhost:8080/api/events/top",
+            "https://syncbrite-server.onrender.com/api/events/top",
             {
               headers: {
                 "Content-Type": "application/json",

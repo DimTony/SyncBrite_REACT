@@ -54,12 +54,15 @@ function AllMyEvents() {
         try {
           const username = userNameMatch[1];
 
-          const response = await axios.get("http://localhost:8080/api/events", {
-            withCredentials: true,
-            headers: {
-              Authorization: `Bearer ${syncToken}`,
-            },
-          });
+          const response = await axios.get(
+            "https://syncbrite-server.onrender.com/api/events",
+            {
+              withCredentials: true,
+              headers: {
+                Authorization: `Bearer ${syncToken}`,
+              },
+            }
+          );
 
           if (
             response.status === 200 &&

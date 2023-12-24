@@ -41,7 +41,7 @@ const CreateGroup = () => {
       if (syncToken) {
         try {
           const response = await axios.post(
-            "http://localhost:8080/api/auth/verify-auth",
+            "https://syncbrite-server.onrender.com/api/auth/verify-auth",
             {
               headers: {
                 "Content-Type": "application/json",
@@ -144,7 +144,7 @@ const CreateGroup = () => {
           formData.append("groupBanner", groupBanner);
 
           const response = await axios.post(
-            "http://localhost:8080/api/groups/create", // Replace with your actual API endpoint URL
+            "https://syncbrite-server.onrender.com/api/groups/create", // Replace with your actual API endpoint URL
             formData,
             {
               withCredentials: true,
