@@ -1,8 +1,7 @@
 .attendee_container {
   display: flex;
   flex-direction: column;
-  background: url(http://localhost:3000/static/media/home-bg.979a2b7ec1c83f279173.jpg)
-    center center/cover no-repeat;
+  background: url("/src/images/home-bg.jpg") center center/cover no-repeat;
   height: 100vh;
   width: 100%;
   justify-content: flex-start;
