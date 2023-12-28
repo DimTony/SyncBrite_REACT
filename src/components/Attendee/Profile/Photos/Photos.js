@@ -36,7 +36,7 @@ function Photos() {
             const username = userNameMatch[1];
 
             const { data } = await axios.post(
-              "https://syncbrite-server.onrender.com/api/auth/verify-cookie",
+              "https://syncbrite.onrender.comapi/auth/verify-cookie",
               {},
               { withCredentials: true }
             );

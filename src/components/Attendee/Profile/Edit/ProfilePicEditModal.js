@@ -60,7 +60,7 @@ function EditProfilePictureModal({
     formData.append("profilePic", file);
     axios
       .patch(
-        "https://syncbrite-server.onrender.com/api/users/edit/profile-pic",
+        "https://syncbrite.onrender.comapi/users/edit/profile-pic",
         formData,
         {
           withCredentials: true,

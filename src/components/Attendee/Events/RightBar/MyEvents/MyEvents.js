@@ -23,7 +23,7 @@ const MyEvents = () => {
       try {
         const syncToken = cookies.SyncBriteToken;
         const response = await axios.get(
-          "https://syncbrite-server.onrender.com/api/events",
+          "https://syncbrite.onrender.comapi/events",
           {
             withCredentials: true,
             headers: { Authorization: `Bearer ${syncToken}` },

@@ -124,7 +124,7 @@ function Leftbar({ data, setData }) {
         // If the cookie exists, send an API call to the backend using Axios
         try {
           const response = await axios.post(
-            "https://syncbrite-server.onrender.com/api/auth/verify-auth",
+            "https://syncbrite.onrender.comapi/auth/verify-auth",
             {
               headers: {
                 "Content-Type": "application/json",

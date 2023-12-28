@@ -10,7 +10,7 @@ const handlePostLikeUnlikeAction = async (postId) => {
     // Use Axios for making API calls
     const response = await axios({
       method: "patch",
-      url: `https://syncbrite-server.onrender.com/api/groups/posts/like/${group.id}/${postId}`,
+      url: `https://syncbrite.onrender.comapi/groups/posts/like/${group.id}/${postId}`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${syncToken}`,

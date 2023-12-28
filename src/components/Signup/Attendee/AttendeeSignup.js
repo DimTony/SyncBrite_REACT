@@ -33,7 +33,7 @@ function AttendeeSignup() {
     } else {
       setLoading(true);
       try {
-        const url = "https://syncbrite-server.onrender.com/api/users/signup";
+        const url = "https://syncbrite.onrender.comapi/users/signup";
         const { data: res } = await axios.post(url, data);
 
         setMsg(res.message);

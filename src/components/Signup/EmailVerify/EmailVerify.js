@@ -21,9 +21,7 @@ const EmailVerify = () => {
 
       // Send a GET request to the router endpoint
       axios
-        .get(
-          `https://syncbrite-server.onrender.com/api/users/${id}/verify/${token}`
-        )
+        .get(`https://syncbrite.onrender.comapi/users/${id}/verify/${token}`)
         .then((response) => {
           // Handle the response status
           setStatus(response.status);

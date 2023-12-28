@@ -142,7 +142,7 @@ function UploadPictureForm({ user, onBack }) {
     const fetchData = async () => {
       try {
         const syncToken = cookies.SyncBriteToken;
-        const url = "https://syncbrite-server.onrender.com/api/users";
+        const url = "https://syncbrite.onrender.comapi/users";
         const { data } = await axios.get(url, {
           withCredentials: true,
           headers: {

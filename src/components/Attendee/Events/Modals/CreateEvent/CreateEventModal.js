@@ -167,7 +167,7 @@ function CreateEventModal({
       setLoading(true);
       try {
         const syncToken = cookies.SyncBriteToken;
-        const url = "https://syncbrite-server.onrender.com/api/events/create";
+        const url = "https://syncbrite.onrender.comapi/events/create";
 
         const formData = new FormData();
         formData.append("bannerImage", data.bannerImage);

@@ -95,7 +95,7 @@ function AttendeeNavbar({ userData, setUser, formUpdated }) {
       try {
         const syncToken = cookies.SyncBriteToken;
 
-        const url = "https://syncbrite-server.onrender.com/api/users";
+        const url = "https://syncbrite.onrender.comapi/users";
         const { data } = await axios.get(url, {
           withCredentials: true,
           headers: {
@@ -163,7 +163,7 @@ function AttendeeNavbar({ userData, setUser, formUpdated }) {
 
   const logoutUser = async () => {
     try {
-      const url = "https://syncbrite-server.onrender.com/api/auth/logout";
+      const url = "https://syncbrite.onrender.comapi/auth/logout";
       const { data: res } = await axios.post(
         url,
         {},
