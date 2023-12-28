@@ -20,7 +20,7 @@
 //     e.preventDefault();
 //     try {
 //       const { data } = await axios.post(
-//         "https://syncbrite.onrender.comapi/auth/login",
+//         "https://syncbrite.onrender.com/api/auth/login",
 //         {
 //           ...values,
 //         },

@@ -6,7 +6,7 @@ const authUser = async (cookies, navigate, removeCookie) => {
   } else {
     try {
       const { data } = await axios.post(
-        "https://syncbrite.onrender.comapi/auth/verify",
+        "https://syncbrite.onrender.com/api/auth/verify",
         {},
         { withCredentials: true }
       );

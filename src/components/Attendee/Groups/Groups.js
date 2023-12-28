@@ -46,7 +46,7 @@ function Groups() {
       if (syncToken) {
         try {
           const response = await axios.post(
-            "https://syncbrite.onrender.comapi/auth/verify-auth",
+            "https://syncbrite.onrender.com/api/auth/verify-auth",
             {
               headers: {
                 "Content-Type": "application/json",

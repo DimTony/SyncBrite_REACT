@@ -143,7 +143,7 @@ function UserRightbar({ user, friend }) {
       }
 
       const response = await axios.patch(
-        `https://syncbrite.onrender.comapi/profiles/friend/request/${userId}`,
+        `https://syncbrite.onrender.com/api/profiles/friend/request/${userId}`,
         { value: valueToSend },
         {
           withCredentials: true,
@@ -184,7 +184,7 @@ function UserRightbar({ user, friend }) {
     const syncToken = cookies.SyncBriteToken;
     try {
       const response = await axios.patch(
-        `https://syncbrite.onrender.comapi/profiles/friend/${userId}`,
+        `https://syncbrite.onrender.com/api/profiles/friend/${userId}`,
         { value: "accept" },
         {
           withCredentials: true,
@@ -225,7 +225,7 @@ function UserRightbar({ user, friend }) {
     const syncToken = cookies.SyncBriteToken;
     try {
       const response = await axios.patch(
-        `https://syncbrite.onrender.comapi/profiles/friend/${userId}`,
+        `https://syncbrite.onrender.com/api/profiles/friend/${userId}`,
         { value: "decline" },
         {
           withCredentials: true,
@@ -284,7 +284,7 @@ function UserRightbar({ user, friend }) {
       }
 
       const response = await axios.patch(
-        `https://syncbrite.onrender.comapi/profiles/follow/${userId}`,
+        `https://syncbrite.onrender.com/api/profiles/follow/${userId}`,
         { value: valueToSend },
         {
           withCredentials: true,

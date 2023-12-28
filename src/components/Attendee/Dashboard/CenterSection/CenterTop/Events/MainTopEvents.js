@@ -44,7 +44,7 @@ const MainTopEvents = () => {
       if (syncToken) {
         try {
           const response = await axios.get(
-            "https://syncbrite.onrender.comapi/events/main",
+            "https://syncbrite.onrender.com/api/events/main",
             {
               headers: {
                 Authorization: `Bearer ${syncToken}`,

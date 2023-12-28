@@ -55,7 +55,7 @@ function AllMyEvents() {
           const username = userNameMatch[1];
 
           const response = await axios.get(
-            "https://syncbrite.onrender.comapi/events",
+            "https://syncbrite.onrender.com/api/events",
             {
               withCredentials: true,
               headers: {

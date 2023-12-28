@@ -41,7 +41,7 @@ function Login() {
 
     setLoading(true);
     try {
-      const url = "https://syncbrite.onrender.comapi/auth";
+      const url = "https://syncbrite.onrender.com/api/auth";
       const { data: res } = await axios.post(url, data, {
         withCredentials: true,
       });

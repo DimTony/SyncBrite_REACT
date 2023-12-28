@@ -95,7 +95,7 @@ function SingleEvent() {
           setEventID(eventId);
 
           const response = await axios.get(
-            `https://syncbrite.onrender.comapi/events/${eventId}`,
+            `https://syncbrite.onrender.com/api/events/${eventId}`,
             {
               withCredentials: true,
               headers: {
@@ -254,7 +254,7 @@ function SingleEvent() {
             }
 
             const response = await axios.get(
-              `https://syncbrite.onrender.comapi/users/${eventInfo.userId}`,
+              `https://syncbrite.onrender.com/api/users/${eventInfo.userId}`,
               {
                 withCredentials: true,
                 headers: {
@@ -384,7 +384,7 @@ function SingleEvent() {
 
     try {
       const response = await axios.patch(
-        `https://syncbrite.onrender.comapi/events/like/${eventId}`,
+        `https://syncbrite.onrender.com/api/events/like/${eventId}`,
         { value: likeValueToSend },
         {
           withCredentials: true,

@@ -36,7 +36,7 @@ function Videos() {
             const username = userNameMatch[1];
 
             const { data } = await axios.post(
-              "https://syncbrite.onrender.comapi/auth/verify-cookie",
+              "https://syncbrite.onrender.com/api/auth/verify-cookie",
               {},
               { withCredentials: true }
             );

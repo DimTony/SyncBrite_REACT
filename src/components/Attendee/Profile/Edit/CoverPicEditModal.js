@@ -62,7 +62,7 @@ function CoverPicEditModal({ user, editCoverModal, setEditCoverModal }) {
     formData.append("coverPic", file);
     axios
       .patch(
-        "https://syncbrite.onrender.comapi/users/edit/cover-pic",
+        "https://syncbrite.onrender.com/api/users/edit/cover-pic",
         formData,
         {
           withCredentials: true,
