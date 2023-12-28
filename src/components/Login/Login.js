@@ -65,6 +65,7 @@ function Login() {
         generateError("Server Not Responding...");
       }
     } catch (error) {
+      console.log("loginError:", error);
       if (
         error.response &&
         error.response.status >= 400 &&
